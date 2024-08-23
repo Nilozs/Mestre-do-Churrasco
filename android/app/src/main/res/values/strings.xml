@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">gril-real</string>
+    <string name="title_activity_main">gril-real</string>
+    <string name="package_name">gril.real</string>
+    <string name="custom_url_scheme">gril.real</string>
+</resources>
