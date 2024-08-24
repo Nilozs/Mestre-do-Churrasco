@@ -10,7 +10,9 @@ import {
 } from "@ionic/react"
 import { IonReactRouter } from "@ionic/react-router"
 import { library, playCircle, radio, search } from "ionicons/icons"
+import React, { useEffect, useState } from "react"
 import { Redirect, Route } from "react-router-dom"
+import LoadingScreen from "./components/LoadingScreen"
 import HomePage from "./pages/HomePage"
 import LibraryPage from "./pages/LibraryPage"
 import RadioPage from "./pages/RadioPage"
@@ -32,61 +34,76 @@ import "@ionic/react/css/padding.css"
 import "@ionic/react/css/text-alignment.css"
 import "@ionic/react/css/text-transformation.css"
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import "@ionic/react/css/palettes/dark.system.css"
 
 /* Theme variables */
 import "./theme/variables.css"
+import "./index.css"
 
 setupIonicReact()
 
-const App: React.FC = () => (
-  <IonReactRouter>
-    <IonTabs>
-      <IonRouterOutlet>
-        <Redirect exact path="/" to="/home" />
-        {/*
-          Use the render method to reduce the number of renders your component will have due to a route change.
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(true)
 
-          Use the component prop when your component depends on the RouterComponentProps passed in automatically.
-        */}
-        <Route path="/home" render={() => <HomePage />} exact={true} />
-        <Route path="/radio" render={() => <RadioPage />} exact={true} />
-        <Route path="/library" render={() => <LibraryPage />} exact={true} />
-        <Route path="/search" render={() => <SearchPage />} exact={true} />
-      </IonRouterOutlet>
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 2000)
 
-      <IonTabBar slot="bottom">
-        <IonTabButton tab="home" href="/home">
-          <IonIcon icon={playCircle} />
-          <IonLabel>Listen now</IonLabel>
-        </IonTabButton>
+    return () => clearTimeout(timer)
+  }, [])
 
-        <IonTabButton tab="radio" href="/radio">
-          <IonIcon icon={radio} />
-          <IonLabel>Radio</IonLabel>
-        </IonTabButton>
+  return (
+    <IonApp>
+      <IonReactRouter>
+        {loading ? (
+          <LoadingScreen />
+        ) : (
+          <IonTabs>
+            <IonRouterOutlet>
+              <Redirect exact path="/" to="/home" />
+              <Route path="/home" render={() => <HomePage />} exact={true} />
+              <Route path="/radio" render={() => <RadioPage />} exact={true} />
+              <Route
+                path="/library"
+                render={() => <LibraryPage />}
+                exact={true}
+              />
+              <Route
+                path="/search"
+                render={() => <SearchPage />}
+                exact={true}
+              />
+            </IonRouterOutlet>
 
-        <IonTabButton tab="library" href="/library">
-          <IonIcon icon={library} />
-          <IonLabel>Library</IonLabel>
-        </IonTabButton>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="home" href="/home">
+                <IonIcon icon={playCircle} />
+                <IonLabel>Listen now</IonLabel>
+              </IonTabButton>
 
-        <IonTabButton tab="search" href="/search">
-          <IonIcon icon={search} />
-          <IonLabel>Search</IonLabel>
-        </IonTabButton>
-      </IonTabBar>
-    </IonTabs>
-  </IonReactRouter>
-)
+              <IonTabButton tab="radio" href="/radio">
+                <IonIcon icon={radio} />
+                <IonLabel>Radio</IonLabel>
+              </IonTabButton>
+
+              <IonTabButton tab="library" href="/library">
+                <IonIcon icon={library} />
+                <IonLabel>Library</IonLabel>
+              </IonTabButton>
+
+              <IonTabButton tab="search" href="/search">
+                <IonIcon icon={search} />
+                <IonLabel>Search</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        )}
+      </IonReactRouter>
+    </IonApp>
+  )
+}
 
 export default App
