@@ -1,0 +1,40 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+    to top,
+    #f2e205,
+    #f29f05 20%,
+    #f25c05 50%,
+    #f23005 80%,
+    #8c1c03 100%
+  );
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+.loading-container img {
+  width: 400px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.loading-text {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
