@@ -7,7 +7,7 @@ const LoadingScreen: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      history.push("/home")
+      history.push("/auth")
     }, 2000)
 
     return () => clearTimeout(timer)
