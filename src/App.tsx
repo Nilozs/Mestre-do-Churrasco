@@ -39,8 +39,9 @@ import "@ionic/react/css/text-transformation.css"
 import "@ionic/react/css/palettes/dark.system.css"
 
 /* Theme variables */
-import "./theme/variables.css"
 import "./index.css"
+import Auth from "./pages/Auth"
+import "./theme/variables.css"
 
 setupIonicReact()
 
@@ -63,7 +64,8 @@ const App: React.FC = () => {
         ) : (
           <IonTabs>
             <IonRouterOutlet>
-              <Redirect exact path="/" to="/home" />
+              <Redirect exact path="/" to="/auth" />
+              <Route path="/auth" render={() => <Auth />} exact={true} />
               <Route path="/home" render={() => <HomePage />} exact={true} />
               <Route path="/radio" render={() => <RadioPage />} exact={true} />
               <Route
@@ -78,26 +80,31 @@ const App: React.FC = () => {
               />
             </IonRouterOutlet>
 
+            
             <IonTabBar slot="bottom">
-              <IonTabButton tab="home" href="/home">
-                <IonIcon icon={playCircle} />
-                <IonLabel>Listen now</IonLabel>
-              </IonTabButton>
+              {window.location.pathname !== "/auth" && (
+                <>
+                  <IonTabButton tab="home" href="/home">
+                    <IonIcon icon={playCircle} />
+                    <IonLabel>Listen now</IonLabel>
+                  </IonTabButton>
 
-              <IonTabButton tab="radio" href="/radio">
-                <IonIcon icon={radio} />
-                <IonLabel>Radio</IonLabel>
-              </IonTabButton>
+                  <IonTabButton tab="radio" href="/radio">
+                    <IonIcon icon={radio} />
+                    <IonLabel>Radio</IonLabel>
+                  </IonTabButton>
 
-              <IonTabButton tab="library" href="/library">
-                <IonIcon icon={library} />
-                <IonLabel>Library</IonLabel>
-              </IonTabButton>
+                  <IonTabButton tab="library" href="/library">
+                    <IonIcon icon={library} />
+                    <IonLabel>Library</IonLabel>
+                  </IonTabButton>
 
-              <IonTabButton tab="search" href="/search">
-                <IonIcon icon={search} />
-                <IonLabel>Search</IonLabel>
-              </IonTabButton>
+                  <IonTabButton tab="search" href="/search">
+                    <IonIcon icon={search} />
+                    <IonLabel>Search</IonLabel>
+                  </IonTabButton>
+                </>
+              )}
             </IonTabBar>
           </IonTabs>
         )}
