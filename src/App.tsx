@@ -65,7 +65,7 @@ const App: React.FC = () => {
           <IonTabs>
             <IonRouterOutlet>
               <Redirect exact path="/" to="/auth" />
-              <Route path="/auth" render={() => <Auth />} exact={true} />
+              <Route path="/auth" render={() => <Auth />} exact={false} />
               <Route path="/home" render={() => <HomePage />} exact={true} />
               <Route path="/radio" render={() => <RadioPage />} exact={true} />
               <Route
