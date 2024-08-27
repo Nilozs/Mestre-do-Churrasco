@@ -10,7 +10,7 @@ const Auth = () => {
     <IonPage>
       <IonContent>
         <div className="flex flex-col items-center justify-center  min-h-screen p-4 bg-[#8C1C03]">
-          <div className="flex space-x-4 mb-3 mt-10 shadow-md shadow-[#f2e2051d]">
+          <div className="flex space-x-4 mb-3 mt-20 shadow-md shadow-[#f2e2051d]">
             <button
               onClick={() => setIsSignIn(true)}
               className={`px-6 py-2 text-white ${
