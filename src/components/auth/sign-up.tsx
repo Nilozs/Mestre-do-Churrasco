@@ -1,8 +1,15 @@
-import { IonInput, IonInputPasswordToggle } from "@ionic/react"
-import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { signUpSchema } from "../../validations/sign-up-validate"
+import {
+  IonInput,
+  IonInputPasswordToggle,
+  IonToast,
+  useIonRouter,
+  useIonToast,
+} from "@ionic/react"
+import { useForm } from "react-hook-form"
 import { z } from "zod"
+import useCreateUser from "../../libs/sign-up"
+import { signUpSchema } from "../../validations/sign-up-validate"
 
 type SignUpFormData = z.infer<typeof signUpSchema>
 
@@ -13,14 +20,44 @@ const SignUpForm = () => {
     formState: { errors },
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      phone: "",
+    },
   })
 
-  const onSubmit = (data: SignUpFormData) => {
-    console.log(data)
+  const { mutate, isSuccess } = useCreateUser()
+  const [present, dismiss] = useIonToast()
+  const router = useIonRouter() // Use useIonRouter instead of useNavigate
+
+  async function handleCreateUser(data: SignUpFormData) {
+    try {
+      await mutate(data)
+      if (isSuccess) {
+        router.push("/home") // Redirect using router.push
+        present({
+          message: "Usuário criado com sucesso",
+          duration: 2000,
+          color: "success",
+        })
+      }
+      console.log(data)
+    } catch (error) {
+      present({
+        message: "Erro ao criar usuário",
+        duration: 2000,
+        color: "danger",
+      })
+    }
   }
 
   return (
-    <form className="mx-auto max-w-md space-y-6" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="mx-auto max-w-md space-y-6"
+      onSubmit={handleSubmit(handleCreateUser)}
+    >
       <div className="space-y-2">
         <label htmlFor="name" className="block font-medium">
           Nome
@@ -44,9 +81,11 @@ const SignUpForm = () => {
           type="text"
           placeholder="Digite seu celular"
           className="w-full rounded border border-gray-300 px-4 py-2"
-          {...register("celular")}
+          {...register("phone")}
         />
-        {errors.celular && <p className="text-[#F2E205]">{errors.celular.message}</p>}
+        {errors.phone && (
+          <p className="text-[#F2E205]">{errors.phone.message}</p>
+        )}
       </div>
 
       <div className="space-y-2">
@@ -60,7 +99,9 @@ const SignUpForm = () => {
           className="w-full rounded border border-gray-300 px-4 py-2"
           {...register("email")}
         />
-        {errors.email && <p className="text-[#F2E205]">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-[#F2E205]">{errors.email.message}</p>
+        )}
       </div>
 
       <div className="space-y-2">
@@ -71,9 +112,14 @@ const SignUpForm = () => {
           {...register("password")}
           className="px-4 py-2 w-full"
         >
-          <IonInputPasswordToggle color={"success"} slot="end"></IonInputPasswordToggle>
+          <IonInputPasswordToggle
+            color={"success"}
+            slot="end"
+          ></IonInputPasswordToggle>
         </IonInput>
-        {errors.password && <p className="text-[#F2E205]">{errors.password.message}</p>}
+        {errors.password && (
+          <p className="text-[#F2E205]">{errors.password.message}</p>
+        )}
       </div>
 
       <button
@@ -82,6 +128,11 @@ const SignUpForm = () => {
       >
         Cadastrar
       </button>
+      <IonToast
+        trigger="open-toast"
+        message="usuario enviado com sucesso"
+        duration={5000}
+      ></IonToast>
     </form>
   )
 }

@@ -12,11 +12,12 @@ import {
   IonTitle,
   IonToolbar,
   setupIonicReact,
+  useIonRouter,
 } from "@ionic/react"
 import { IonReactRouter } from "@ionic/react-router"
 import { library, playCircle, radio, search } from "ionicons/icons"
 import React, { useEffect, useState } from "react"
-import { Redirect, Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 import LoadingScreen from "./components/LoadingScreen"
 import Auth from "./pages/Auth"
 import HomePage from "./pages/HomePage"
@@ -24,7 +25,6 @@ import LibraryPage from "./pages/LibraryPage"
 import RadioPage from "./pages/RadioPage"
 import SearchPage from "./pages/SearchPage"
 
-/* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css"
 import "@ionic/react/css/normalize.css"
 import "@ionic/react/css/palettes/dark.system.css"
@@ -39,17 +39,19 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(
     () => !localStorage.getItem("loadingCompleted"),
   )
+  const router = useIonRouter()
 
   useEffect(() => {
     if (loading) {
       const timer = setTimeout(() => {
         setLoading(false)
         localStorage.setItem("loadingCompleted", "true")
+        router.push("/auth") // Redirecionar após o splash screen
       }, 2000)
 
       return () => clearTimeout(timer)
     }
-  }, [loading])
+  }, [loading, router])
 
   return (
     <IonApp>
@@ -94,20 +96,11 @@ const App: React.FC = () => {
                 </IonToolbar>
               </IonHeader>
 
-              <Route path="/auth" render={() => <Auth />} exact={false} />
-              <Route path="/home" render={() => <HomePage />} exact={true} />
-              <Route path="/radio" render={() => <RadioPage />} exact={true} />
-              <Route
-                path="/library"
-                render={() => <LibraryPage />}
-                exact={true}
-              />
-              <Route
-                path="/search"
-                render={() => <SearchPage />}
-                exact={true}
-              />
-              <Redirect exact path="/" to="/auth" />
+              <Route path="/auth" component={Auth} />
+              <Route path="/home" component={HomePage} />
+              <Route path="/radio" component={RadioPage} />
+              <Route path="/library" component={LibraryPage} />
+              <Route path="/search" component={SearchPage} />
             </>
           )}
         </IonRouterOutlet>
