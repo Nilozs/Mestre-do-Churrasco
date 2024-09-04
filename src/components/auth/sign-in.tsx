@@ -1,10 +1,11 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { IonInput, IonInputPasswordToggle } from "@ionic/react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { signInSchema } from "../../validations/sign-in-validate"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { IonInput, IonInputPasswordToggle } from "@ionic/react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { signInSchema } from "../../validations/sign-in-validate";
+import useLoginUsers from "../../libs/sign-in";
 
-type SignInFormData = z.infer<typeof signInSchema>
+type SignInFormData = z.infer<typeof signInSchema>;
 
 const SignIn = () => {
   const {
@@ -13,18 +14,20 @@ const SignIn = () => {
     formState: { errors },
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
-  })
+  });
+
+  const { mutate } = useLoginUsers();
 
   const onSubmit = (data: SignInFormData) => {
-    console.log(data)
-  }
+    mutate(data);
+  };
 
   return (
     <form
       className="mx-auto max-w-md space-y-6"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h3 className="font-medium text-3xl">Bem Vindo(a)</h3>
+      <h3 className="font-medium text-2xl">Bem Vindo(a)</h3>
 
       <div className="space-y-2">
         <label htmlFor="email" className="block font-medium">
@@ -42,7 +45,7 @@ const SignIn = () => {
         )}
       </div>
 
-      <div className="space-y-2 ">
+      <div className="space-y-2">
         <IonInput
           type="password"
           label="Senha"
@@ -68,7 +71,7 @@ const SignIn = () => {
         Login
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

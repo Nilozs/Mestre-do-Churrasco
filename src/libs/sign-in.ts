@@ -1,21 +1,18 @@
-import { LoginResponse, Users } from "../@types/user"
+import { LoginResponse, Users } from "../@types/user";
 import { api } from "./api";
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "../context/middleware";
-import { IonToast, useIonToast } from '@ionic/react';
-import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { useIonToast, useIonRouter } from '@ionic/react';
 
 const loginUser = async (users: Users): Promise<LoginResponse> => {
-  const { data } = await api.post<LoginResponse>("/api/user/login", users);
+  const { data } = await api.post<LoginResponse>("api/login", users);
   return data;
 };
 
 export default function useLoginUsers() {
   const { dispatch } = useAuth();
-  const [present, dismiss] = useIonToast();
-  const [showToast, setShowToast] = useState(false);
-  const history = useHistory();
+  const [present] = useIonToast();
+  const router = useIonRouter();
 
   return useMutation<LoginResponse, unknown, Users>({
     mutationFn: loginUser,
@@ -28,7 +25,7 @@ export default function useLoginUsers() {
           token,
           user: {
             ...user,
-            id: user.id ?? 0, 
+            id: user.id ?? 0,
           },
           loading: false,
         }
@@ -40,7 +37,14 @@ export default function useLoginUsers() {
         color: 'success',
       });
     
-      history.push('/2fa');
+      router.push('/home', 'forward'); 
     },
+    onError: () => {
+      present({
+        message: 'Erro ao realizar login',
+        duration: 2000,
+        color: 'danger',
+      });
+    }
   });
 }

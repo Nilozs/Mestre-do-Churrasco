@@ -19,6 +19,7 @@ import { library, playCircle, radio, search } from "ionicons/icons"
 import React, { useEffect, useState } from "react"
 import { Route } from "react-router-dom"
 import LoadingScreen from "./components/LoadingScreen"
+import { useAuth } from "./context/middleware"
 import Auth from "./pages/Auth"
 import HomePage from "./pages/HomePage"
 import LibraryPage from "./pages/LibraryPage"
@@ -36,6 +37,7 @@ import "./theme/variables.css"
 setupIonicReact()
 
 const App: React.FC = () => {
+  const { state } = useAuth()
   const [loading, setLoading] = useState(
     () => !localStorage.getItem("loadingCompleted"),
   )
@@ -45,13 +47,21 @@ const App: React.FC = () => {
     if (loading) {
       const timer = setTimeout(() => {
         setLoading(false)
-        localStorage.setItem("loadingCompleted", "true")
-        router.push("/auth") // Redirecionar após o splash screen
+
+        if (!state.isAuthenticated) {
+          router.push("/auth")
+        }
       }, 2000)
 
       return () => clearTimeout(timer)
     }
-  }, [loading, router])
+  }, [loading, state.isAuthenticated, router])
+
+  useEffect(() => {
+    if (state.isAuthenticated) {
+      localStorage.removeItem("loadingCompleted")
+    }
+  }, [state.isAuthenticated])
 
   return (
     <IonApp>

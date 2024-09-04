@@ -1,17 +1,11 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import {
-  IonInput,
-  IonInputPasswordToggle,
-  IonToast,
-  useIonRouter,
-  useIonToast,
-} from "@ionic/react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import useCreateUser from "../../libs/sign-up"
-import { signUpSchema } from "../../validations/sign-up-validate"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { IonInput, IonInputPasswordToggle, useIonRouter, useIonToast } from "@ionic/react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import useCreateUser from "../../libs/sign-up";
+import { signUpSchema } from "../../validations/sign-up-validate";
 
-type SignUpFormData = z.infer<typeof signUpSchema>
+type SignUpFormData = z.infer<typeof signUpSchema>;
 
 const SignUpForm = () => {
   const {
@@ -26,38 +20,40 @@ const SignUpForm = () => {
       password: "",
       phone: "",
     },
-  })
+  });
 
-  const { mutate, isSuccess } = useCreateUser()
-  const [present, dismiss] = useIonToast()
-  const router = useIonRouter() // Use useIonRouter instead of useNavigate
+  const router = useIonRouter();
+  const [present] = useIonToast();
+  const { mutate } = useCreateUser();
 
-  async function handleCreateUser(data: SignUpFormData) {
-    try {
-      await mutate(data)
-      if (isSuccess) {
-        router.push("/home") // Redirect using router.push
+  const handleCreateUser = (data: SignUpFormData) => {
+    console.log('API Response:', data)
+    mutate(data, {
+      
+      onSuccess: () => {
         present({
           message: "Usuário criado com sucesso",
           duration: 2000,
           color: "success",
-        })
-      }
-      console.log(data)
-    } catch (error) {
-      present({
-        message: "Erro ao criar usuário",
-        duration: 2000,
-        color: "danger",
-      })
-    }
-  }
+        });
+        router.push("/home"); 
+      },
+      onError: () => {
+        present({
+          message: "Erro ao criar usuário",
+          duration: 2000,
+          color: "danger",
+        });
+      },
+    });
+  };
 
   return (
     <form
       className="mx-auto max-w-md space-y-6"
       onSubmit={handleSubmit(handleCreateUser)}
     >
+      <h3 className="font-medium text-2xl">Cadastrar</h3>
       <div className="space-y-2">
         <label htmlFor="name" className="block font-medium">
           Nome
@@ -128,13 +124,8 @@ const SignUpForm = () => {
       >
         Cadastrar
       </button>
-      <IonToast
-        trigger="open-toast"
-        message="usuario enviado com sucesso"
-        duration={5000}
-      ></IonToast>
     </form>
-  )
-}
+  );
+};
 
-export default SignUpForm
+export default SignUpForm;

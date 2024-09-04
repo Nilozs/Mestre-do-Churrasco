@@ -1,6 +1,6 @@
 export interface Users {
   email: string
-  senha: string
+  password: string
 }
 
 export type User = {

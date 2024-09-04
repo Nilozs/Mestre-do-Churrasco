@@ -4,9 +4,7 @@ import React from 'react';
 const RadioPage = () => (
   <>
     <IonHeader>
-      <IonToolbar>
-        <IonTitle>Radio</IonTitle>
-      </IonToolbar>
+      
     </IonHeader>
     <IonContent>
       <div
