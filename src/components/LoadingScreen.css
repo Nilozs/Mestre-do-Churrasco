@@ -1,33 +1,58 @@
 .loading-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100vh;
-  background: linear-gradient(
-    to top,
-    #f2e205,
-    #f29f05 20%,
-    #f25c05 50%,
-    #f23005 80%,
-    #8c1c03 100%
-  );
-  opacity: 0;
+  background-color: #000000;
   animation: fadeIn 1.5s forwards;
+  opacity: 0;
 }
 
 .loading-container img {
-  width: 400px;
-  height: auto;
-  margin-bottom: 16px;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  margin-bottom: -80%;
+  border-radius: 16px; 
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  background: linear-gradient(to top, #000000, #000000);
+  box-shadow: -30px -20px 40px rgba(0, 0, 0, 0.986); 
+}
+
+.logo-section img {
+  width: 90%;
+  height: 100%;
+  margin-bottom: 8px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 10px;
 }
 
 .loading-text {
   color: white;
-  font-size: 40px;
+  font-size: 60px;
   text-align: center;
-  font-weight: 400;
-  letter-spacing: 1;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.social-icons svg {
+  color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -37,4 +62,11 @@
   100% {
     opacity: 1;
   }
+}
+
+@media (max-width: 768px) {
+  .loading-text {
+    font-size: 28px;
+  }
+
 }
