@@ -17,7 +17,7 @@ import {
 import { IonReactRouter } from "@ionic/react-router"
 import { library, playCircle, radio, search } from "ionicons/icons"
 import React, { useEffect, useState } from "react"
-import { Route } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
 import LoadingScreen from "./components/LoadingScreen"
 import { useAuth } from "./context/middleware"
 import Auth from "./pages/Auth"
@@ -31,6 +31,7 @@ import "@ionic/react/css/normalize.css"
 import "@ionic/react/css/palettes/dark.system.css"
 import "@ionic/react/css/structure.css"
 import "@ionic/react/css/typography.css"
+import UserProfileHeader from "./components/use-profile-header"
 import "./index.css"
 import "./theme/variables.css"
 
@@ -67,11 +68,10 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonMenu contentId="main-content">
-          <IonHeader>
-            <IonToolbar>
-              <IonTitle>Menu</IonTitle>
-            </IonToolbar>
-          </IonHeader>
+          <Link to="/profile">
+            <UserProfileHeader />
+          </Link>
+
           <IonContent>
             <IonList>
               <IonItem button routerLink="/home">
