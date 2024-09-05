@@ -1,15 +1,15 @@
-import { IonContent, IonPage } from "@ionic/react";
-import React, { useState } from "react";
-import SignInForm from "../components/auth/sign-in";
-import SignUpForm from "../components/auth/sign-up";
+import { IonContent, IonPage } from "@ionic/react"
+import React, { useState } from "react"
+import SignInForm from "../components/auth/sign-in"
+import SignUpForm from "../components/auth/sign-up"
 
 const Auth = () => {
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(true)
 
   return (
     <IonPage>
       <IonContent>
-        <div className="flex flex-col items-center justify-center  min-h-screen p-4 bg-[#8C1C03]">
+        <div className="flex flex-col items-center justify-center  min-h-screen p-4 bg-custom-dark">
           <div className="flex space-x-4 mb-3 mt-20 shadow-md shadow-[#f2e2051d]">
             <button
               onClick={() => setIsSignIn(true)}
@@ -38,7 +38,7 @@ const Auth = () => {
         </div>
       </IonContent>
     </IonPage>
-  );
-};
+  )
+}
 
-export default Auth;
+export default Auth

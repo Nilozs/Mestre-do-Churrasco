@@ -1,17 +1,22 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { IonInput, IonInputPasswordToggle, useIonRouter, useIonToast } from "@ionic/react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import useCreateUser from "../../libs/sign-up";
-import { signUpSchema } from "../../validations/sign-up-validate";
+import { zodResolver } from "@hookform/resolvers/zod"
+import {
+  IonInput,
+  IonInputPasswordToggle,
+  useIonRouter,
+  useIonToast,
+} from "@ionic/react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import useCreateUser from "../../libs/sign-up"
+import { signUpSchema } from "../../validations/sign-up-validate"
 
-type SignUpFormData = z.infer<typeof signUpSchema>;
+type SignUpFormData = z.infer<typeof signUpSchema>
 
 const SignUpForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -20,33 +25,31 @@ const SignUpForm = () => {
       password: "",
       phone: "",
     },
-  });
+  })
 
-  const router = useIonRouter();
-  const [present] = useIonToast();
-  const { mutate } = useCreateUser();
+  const router = useIonRouter()
+  const [present] = useIonToast()
+  const { mutate } = useCreateUser()
 
   const handleCreateUser = (data: SignUpFormData) => {
-    console.log('API Response:', data)
     mutate(data, {
-      
       onSuccess: () => {
         present({
           message: "Usuário criado com sucesso",
           duration: 2000,
           color: "success",
-        });
-        router.push("/home"); 
+        })
+        router.push("/home")
       },
       onError: () => {
         present({
           message: "Erro ao criar usuário",
           duration: 2000,
           color: "danger",
-        });
+        })
       },
-    });
-  };
+    })
+  }
 
   return (
     <form
@@ -54,6 +57,7 @@ const SignUpForm = () => {
       onSubmit={handleSubmit(handleCreateUser)}
     >
       <h3 className="font-medium text-2xl">Cadastrar</h3>
+
       <div className="space-y-2">
         <label htmlFor="name" className="block font-medium">
           Nome
@@ -108,10 +112,7 @@ const SignUpForm = () => {
           {...register("password")}
           className="px-4 py-2 w-full"
         >
-          <IonInputPasswordToggle
-            color={"success"}
-            slot="end"
-          ></IonInputPasswordToggle>
+          <IonInputPasswordToggle color={"success"} slot="end" />
         </IonInput>
         {errors.password && (
           <p className="text-[#F2E205]">{errors.password.message}</p>
@@ -120,12 +121,13 @@ const SignUpForm = () => {
 
       <button
         type="submit"
-        className="w-full rounded bg-[#F29F05] px-4 py-2 text-white"
+        className="w-full rounded bg-custom-orange px-4 py-2 text-white"
+        disabled={isSubmitting}
       >
-        Cadastrar
+        {isSubmitting ? "Enviando..." : "Cadastrar"}
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default SignUpForm;
+export default SignUpForm

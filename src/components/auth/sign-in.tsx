@@ -1,26 +1,26 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { IonInput, IonInputPasswordToggle } from "@ionic/react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { signInSchema } from "../../validations/sign-in-validate";
-import useLoginUsers from "../../libs/sign-in";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { IonInput, IonInputPasswordToggle } from "@ionic/react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import useLoginUsers from "../../libs/sign-in"
+import { signInSchema } from "../../validations/sign-in-validate"
 
-type SignInFormData = z.infer<typeof signInSchema>;
+type SignInFormData = z.infer<typeof signInSchema>
 
 const SignIn = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
-  });
+  })
 
-  const { mutate } = useLoginUsers();
+  const { mutate } = useLoginUsers()
 
   const onSubmit = (data: SignInFormData) => {
-    mutate(data);
-  };
+    mutate(data)
+  }
 
   return (
     <form
@@ -66,12 +66,13 @@ const SignIn = () => {
 
       <button
         type="submit"
-        className="w-full rounded bg-[#F29F05] px-4 py-2 text-white"
+        className="w-full rounded bg-custom-orange px-4 py-2 text-white"
+        disabled={isSubmitting}
       >
-        Login
+        {isSubmitting ? "Enviando..." : "Entrar"}
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn
