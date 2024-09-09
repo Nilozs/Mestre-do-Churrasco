@@ -24,6 +24,8 @@ const LoadingScreen: React.FC = () => {
   }, [state, router])
 
   return (
+
+    
     <div className="fire">
       <div className="loading-container">
         <div className="logo-section">
