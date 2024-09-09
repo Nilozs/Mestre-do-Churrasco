@@ -1,6 +1,6 @@
 import { IonIcon, useIonRouter } from "@ionic/react"
 import { logoFacebook, logoInstagram, logoTwitter } from "ionicons/icons"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useAuth } from "../context/middleware"
 import LoadScrenSvg from "./LoadScrenSvg"
 import "./LoadingScreen.css"
@@ -8,20 +8,32 @@ import "./LoadingScreen.css"
 const LoadingScreen: React.FC = () => {
   const router = useIonRouter()
   const { state } = useAuth()
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (state.loading) return
-
-      if (state.isAuthenticated) {
-        router.push("/home")
-      } else {
-        router.push("/auth")
+      if (!state.loading) {
+        if (state.isAuthenticated) {
+          router.push("/home")
+        } else {
+          router.push("/auth")
+        }
+        setIsLoading(false) 
       }
     }, 2000)
 
     return () => clearTimeout(timer)
   }, [state, router])
+
+  useEffect(() => {
+    if (!state.loading && !isLoading) {
+      if (state.isAuthenticated) {
+        router.push("/home")
+      } else {
+        router.push("/auth")
+      }
+    }
+  }, [state, isLoading, router])
 
   return (
     <div className="fire">

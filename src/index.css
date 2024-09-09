@@ -1,13 +1,15 @@
 @tailwind base;
 @tailwind components;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @tailwind utilities;
 
 .open-sans {
   font-family: "Open Sans", sans-serif;
 }
 
-
+html {
+  background-color: #0d0d0d;
+}
 
 .bottom-menu {
   position: fixed;
@@ -31,5 +33,5 @@
 }
 
 .bottom-menu a:hover {
-  color: #f29f05; 
+  color: #f29f05;
 }

@@ -9,20 +9,20 @@ const Auth = () => {
   return (
     <IonPage>
       <IonContent>
-        <div className="flex flex-col items-center justify-center  min-h-screen p-4 bg-custom-dark">
+        <div className="flex flex-col items-center justify-center  min-h-screen p-4 bg-custom-red">
           <div className="flex space-x-4 mb-3 mt-20 shadow-md shadow-[#f2e2051d]">
             <button
               onClick={() => setIsSignIn(true)}
               className={`px-6 py-2 text-white ${
-                isSignIn ? "#F2E205" : "bg-red-500"
-              } hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded transition-all duration-300`}
+                isSignIn ? "#F2A81D" : "bg-custom-dark"
+              } hover:bg-custom-dark active:bg-custom-dark focus:outline-none focus:ring-2 focus:ring-custom-orange focus:ring-opacity-50 rounded transition-all duration-300`}
             >
               Logar
             </button>
             <button
               onClick={() => setIsSignIn(false)}
               className={`px-6 py-2 text-white ${
-                !isSignIn ? "#F2E205" : "bg-red-500"
+                !isSignIn ? "#F2A81D" : "bg-custom-dark"
               } hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded transition-all duration-300`}
             >
               Cadastrar
