@@ -1,24 +1,18 @@
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react"
 
 const RadioPage = () => (
   <>
-    <IonHeader>
-      
-    </IonHeader>
-    <IonContent className='bg-slate-950'>
+    <IonContent className="bg-slate-950">
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
         }}
-      >
-        Radio content
-      </div>
+      ></div>
     </IonContent>
   </>
-);
+)
 
-export default RadioPage;
+export default RadioPage
