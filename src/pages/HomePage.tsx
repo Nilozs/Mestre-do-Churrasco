@@ -6,7 +6,7 @@ const RadioPage = () => (
     <IonHeader>
       
     </IonHeader>
-    <IonContent>
+    <IonContent className='bg-slate-950'>
       <div
         style={{
           display: 'flex',

@@ -4,9 +4,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 const LibraryPage = () => (
   <>
     <IonHeader>
-      <IonToolbar>
-        <IonTitle>Library</IonTitle>
-      </IonToolbar>
     </IonHeader>
     <IonContent>
       <div

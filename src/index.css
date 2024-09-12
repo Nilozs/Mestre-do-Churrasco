@@ -11,6 +11,14 @@ html {
   background-color: #0d0d0d;
 }
 
+:root {
+  /* Alterar cor de fundo da sidebar */
+  --ion-menu-background: #ffffff;
+
+  /* Alterar cor do texto na sidebar */
+  --ion-text-color: #000000;
+}
+
 .bottom-menu {
   position: fixed;
   bottom: 0;
@@ -34,4 +42,8 @@ html {
 
 .bottom-menu a:hover {
   color: #f29f05;
+}
+
+.menu-custom-red {
+  background-color: #F23005;
 }
