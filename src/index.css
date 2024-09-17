@@ -7,18 +7,13 @@
   font-family: "Open Sans", sans-serif;
 }
 
-html {
-  background-color: #0d0d0d;
+label {
+  color: black;
 }
 
-:root {
-  /* Alterar cor de fundo da sidebar */
-  --ion-menu-background: #ffffff;
-
-  /* Alterar cor do texto na sidebar */
-  --ion-text-color: #000000;
+input::placeholder {
+  background-color: transparent;
 }
-
 .bottom-menu {
   position: fixed;
   bottom: 0;
@@ -45,5 +40,5 @@ html {
 }
 
 .menu-custom-red {
-  background-color: #F23005;
+  background-color: #f23005;
 }

@@ -1,55 +1,9 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import {
-  IonInput,
-  IonInputPasswordToggle,
-  useIonRouter,
-  useIonToast,
-} from "@ionic/react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import useCreateUser from "../../libs/sign-up"
-import { signUpSchema } from "../../validations/sign-up-validate"
-
-type SignUpFormData = z.infer<typeof signUpSchema>
+import { IonInput, IonInputPasswordToggle } from "@ionic/react"
+import { useSignUpForm } from "../../hooks/useSingUpForm"
 
 const SignUpForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<SignUpFormData>({
-    resolver: zodResolver(signUpSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      password: "",
-      phone: "",
-    },
-  })
-
-  const router = useIonRouter()
-  const [present] = useIonToast()
-  const { mutate } = useCreateUser()
-
-  const handleCreateUser = (data: SignUpFormData) => {
-    mutate(data, {
-      onSuccess: () => {
-        present({
-          message: "Usuário criado com sucesso",
-          duration: 2000,
-          color: "success",
-        })
-        router.push("/home")
-      },
-      onError: () => {
-        present({
-          message: "Erro ao criar usuário",
-          duration: 2000,
-          color: "danger",
-        })
-      },
-    })
-  }
+  const { register, handleSubmit, handleCreateUser, errors, isSubmitting } =
+    useSignUpForm()
 
   return (
     <form
@@ -59,28 +13,28 @@ const SignUpForm = () => {
       <h3 className="font-medium text-2xl">Cadastrar</h3>
 
       <div className="space-y-2">
-        <label htmlFor="name" className="block font-medium">
+        <label htmlFor="name" className="block font-medium text-white">
           Nome
         </label>
         <input
           id="name"
           type="text"
           placeholder="Digite seu Nome"
-          className="w-full rounded border border-gray-300 px-4 py-2"
+          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
           {...register("name")}
         />
         {errors.name && <p className="text-[#F2E205]">{errors.name.message}</p>}
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="celular" className="block font-medium">
+        <label htmlFor="celular" className="block font-medium text-white">
           Celular
         </label>
         <input
           id="celular"
           type="text"
           placeholder="Digite seu celular"
-          className="w-full rounded border border-gray-300 px-4 py-2"
+          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
           {...register("phone")}
         />
         {errors.phone && (
@@ -89,14 +43,14 @@ const SignUpForm = () => {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="email" className="block font-medium">
+        <label htmlFor="email" className="block font-medium text-white">
           Email
         </label>
         <input
           id="email"
           type="email"
           placeholder="Digite seu email"
-          className="w-full rounded border border-gray-300 px-4 py-2"
+          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
           {...register("email")}
         />
         {errors.email && (
@@ -110,7 +64,7 @@ const SignUpForm = () => {
           label="Senha"
           color={"danger"}
           {...register("password")}
-          className="px-4 py-2 w-full"
+          className="px-4 py-2 w-full "
         >
           <IonInputPasswordToggle color={"success"} slot="end" />
         </IonInput>

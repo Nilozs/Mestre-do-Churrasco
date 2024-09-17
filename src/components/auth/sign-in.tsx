@@ -1,26 +1,9 @@
-import { zodResolver } from "@hookform/resolvers/zod"
 import { IonInput, IonInputPasswordToggle } from "@ionic/react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import useLoginUsers from "../../libs/sign-in"
-import { signInSchema } from "../../validations/sign-in-validate"
-
-type SignInFormData = z.infer<typeof signInSchema>
+import { useSignInForm } from "../../hooks/useSignInForm"
 
 const SignIn = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<SignInFormData>({
-    resolver: zodResolver(signInSchema),
-  })
-
-  const { mutate } = useLoginUsers()
-
-  const onSubmit = (data: SignInFormData) => {
-    mutate(data)
-  }
+  const { register, handleSubmit, onSubmit, formState } = useSignInForm()
+  const { errors, isSubmitting } = formState
 
   return (
     <form
@@ -30,14 +13,14 @@ const SignIn = () => {
       <h3 className="font-medium text-2xl">Bem Vindo(a)</h3>
 
       <div className="space-y-2">
-        <label htmlFor="email" className="block font-medium">
+        <label htmlFor="email" className="block font-medium text-white">
           Email
         </label>
         <input
           id="email"
           type="email"
           placeholder="Digite seu email"
-          className="w-full rounded border border-gray-300 px-4 py-2"
+          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
           {...register("email")}
         />
         {errors.email && (

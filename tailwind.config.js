@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'custom-dark': '#0D0D0D',
+        'custom-dark': '#00000',
         'custom-maroon': '#731702',
         'custom-red': '#F23005',
         'custom-orange': '#F27B13',

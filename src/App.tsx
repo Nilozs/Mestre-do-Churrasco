@@ -27,6 +27,7 @@ import UserProfileHeader from "./components/use-profile-header"
 import { useAuth } from "./context/middleware"
 import "./index.css"
 import Auth from "./pages/Auth"
+import ChurrasPage from "./pages/ChurrasPage"
 import HomePage from "./pages/HomePage"
 import LibraryPage from "./pages/LibraryPage"
 import RadioPage from "./pages/RadioPage"
@@ -72,7 +73,7 @@ const App: React.FC = () => {
 
           <IonContent className="bg-[#F23005]">
             <IonList>
-              <IonItem button routerLink="/home">
+              <IonItem button routerLink="/churrascometro">
                 <img
                   src="/churrasco.png"
                   alt="churrasco icon"
@@ -116,12 +117,13 @@ const App: React.FC = () => {
               <IonHeader>
                 <IonToolbar>
                   <IonMenuButton slot="start" />
-                  <IonTitle>Gril Nota Mil</IonTitle>
+                  <IonTitle><Link to="/home">Gril Nota Mil</Link></IonTitle>
                 </IonToolbar>
               </IonHeader>
 
               <Route path="/auth" component={Auth} />
               <Route path="/home" component={HomePage} />
+              <Route path="/churrascometro" component={ChurrasPage} />
               <Route path="/radio" component={RadioPage} />
               <Route path="/library" component={LibraryPage} />
               <Route path="/search" component={SearchPage} />
