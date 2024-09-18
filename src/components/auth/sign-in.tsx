@@ -1,4 +1,5 @@
-import { IonInput, IonInputPasswordToggle } from "@ionic/react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { useSignInForm } from "../../hooks/useSignInForm"
 
 const SignIn = () => {
@@ -6,54 +7,38 @@ const SignIn = () => {
   const { errors, isSubmitting } = formState
 
   return (
-    <form
-      className="mx-auto max-w-md space-y-6"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <h3 className="font-medium text-2xl">Bem Vindo(a)</h3>
+    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        type="email"
+        placeholder="Endereço de e-mail"
+        {...register("email")}
+        className={errors.email ? "border-red-500" : ""}
+      />
+      {errors.email && <p className="text-custom-orange">{errors.email.message}</p>}
 
-      <div className="space-y-2">
-        <label htmlFor="email" className="block font-medium text-white">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Digite seu email"
-          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
-          {...register("email")}
-        />
-        {errors.email && (
-          <p className="text-[#F2E205]">{errors.email.message}</p>
-        )}
+      <Input
+        type="password"
+        placeholder="Senha"
+        {...register("password")}
+        className={errors.password ? "border-red-500 text-custom-dark" : ""}
+      />
+      {errors.password && (
+        <p  className="text-custom-orange">{errors.password.message}</p>
+      )}
+
+      <div className="text-right">
+        <a href="#" className="text-orange-500 text-sm">
+          Esqueceu a senha?
+        </a>
       </div>
 
-      <div className="space-y-2">
-        <IonInput
-          type="password"
-          label="Senha"
-          color={"danger"}
-          {...register("password")}
-          className="px-4 py-2 w-full"
-        >
-          <IonInputPasswordToggle
-            className="text-[#F29F05]"
-            color={"success"}
-            slot="end"
-          ></IonInputPasswordToggle>
-        </IonInput>
-        {errors.password && (
-          <p className="text-[#F2E205]">{errors.password.message}</p>
-        )}
-      </div>
-
-      <button
+      <Button
+        className="w-full bg-red-800 text-white"
         type="submit"
-        className="w-full rounded bg-custom-orange px-4 py-2 text-white"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Enviando..." : "Entrar"}
-      </button>
+        {isSubmitting ? "Entrando..." : "Entrar"}
+      </Button>
     </form>
   )
 }

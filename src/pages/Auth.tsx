@@ -1,39 +1,40 @@
+import SignIn from "@/components/auth/sign-in"
+import SignUpForm from "@/components/auth/sign-up"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { IonContent, IonPage } from "@ionic/react"
-import React, { useState } from "react"
-import SignInForm from "../components/auth/sign-in"
-import SignUpForm from "../components/auth/sign-up"
+import { useState } from "react"
 
 const Auth = () => {
-  const [isSignIn, setIsSignIn] = useState(true)
+  const [activeTab, setActiveTab] = useState("login")
 
   return (
     <IonPage>
       <IonContent>
-        <div className="flex flex-col items-center justify-center  min-h-screen p-4 bg-custom-red">
-          <div className="flex space-x-4 mb-3 mt-20 shadow-md shadow-[#f2e2051d]">
-            <button
-              onClick={() => setIsSignIn(true)}
-              className={`px-6 py-2 text-white ${
-                isSignIn ? "#F2A81D" : "bg-custom-maroon"
-              } hover:bg-custom-dark active:bg-custom-dark focus:outline-none focus:ring-2 focus:ring-custom-orange focus:ring-opacity-50 rounded transition-all duration-300`}
+        <div className="flex flex-col items-center justify-center h-full bg-white p-4">
+          <div className="w-full max-w-md">
+            <Tabs
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className=" mb-20 space-y-10"
             >
-              Logar
-            </button>
-            <button
-              onClick={() => setIsSignIn(false)}
-              className={`px-6 py-2 text-white ${
-                !isSignIn ? "#F2A81D" : "bg-custom-maroon"
-              } hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded transition-all duration-300`}
-            >
-              Cadastrar
-            </button>
-          </div>
-          <div
-            className={`w-full max-w-md h-full mb-36 p-8 rounded-lg transition-transform duration-500 ease-in-out transform ${
-              isSignIn ? "scale-100" : "scale-95"
-            }`}
-          >
-            {isSignIn ? <SignInForm /> : <SignUpForm />}
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger
+                  value="login"
+                  className="bg-custom-dark active:bg-black text-white"
+                >
+                  Login
+                </TabsTrigger>
+                <TabsTrigger value="registrar" >Registrar</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="login">
+                <SignIn />
+              </TabsContent>
+
+              <TabsContent value="registrar">
+                <SignUpForm />
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
       </IonContent>

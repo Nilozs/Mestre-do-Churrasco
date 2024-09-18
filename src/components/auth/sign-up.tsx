@@ -1,87 +1,42 @@
-import { IonInput, IonInputPasswordToggle } from "@ionic/react"
-import { useSignUpForm } from "../../hooks/useSingUpForm"
+import { useSignUpForm } from "../../hooks/useSingUpForm";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const SignUpForm = () => {
-  const { register, handleSubmit, handleCreateUser, errors, isSubmitting } =
-    useSignUpForm()
+  const { register, handleSubmit, handleCreateUser, errors, isSubmitting } = useSignUpForm();
 
   return (
-    <form
-      className="mx-auto max-w-md space-y-6"
-      onSubmit={handleSubmit(handleCreateUser)}
-    >
-      <h3 className="font-medium text-2xl">Cadastrar</h3>
+    <form className="space-y-4" onSubmit={handleSubmit(handleCreateUser)}>
+      <Input
+        type="text"
+        placeholder="Nome Completo"
+        {...register("name")}
+      />
+      {errors.name && <p className="text-[#F2E205]">{errors.name.message}</p>}
 
-      <div className="space-y-2">
-        <label htmlFor="name" className="block font-medium text-white">
-          Nome
-        </label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Digite seu Nome"
-          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
-          {...register("name")}
-        />
-        {errors.name && <p className="text-[#F2E205]">{errors.name.message}</p>}
-      </div>
+      <Input
+        type="email"
+        placeholder="Endereço de e-mail"
+        {...register("email")}
+      />
+      {errors.email && <p className="text-[#F2E205]">{errors.email.message}</p>}
 
-      <div className="space-y-2">
-        <label htmlFor="celular" className="block font-medium text-white">
-          Celular
-        </label>
-        <input
-          id="celular"
-          type="text"
-          placeholder="Digite seu celular"
-          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
-          {...register("phone")}
-        />
-        {errors.phone && (
-          <p className="text-[#F2E205]">{errors.phone.message}</p>
-        )}
-      </div>
+      <Input
+        type="password"
+        placeholder="Senha"
+        {...register("password")}
+      />
+      {errors.password && <p className="text-[#F2E205]">{errors.password.message}</p>}
 
-      <div className="space-y-2">
-        <label htmlFor="email" className="block font-medium text-white">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Digite seu email"
-          className="w-full rounded border border-gray-300 px-4 py-2 text-white"
-          {...register("email")}
-        />
-        {errors.email && (
-          <p className="text-[#F2E205]">{errors.email.message}</p>
-        )}
-      </div>
-
-      <div className="space-y-2">
-        <IonInput
-          type="password"
-          label="Senha"
-          color={"danger"}
-          {...register("password")}
-          className="px-4 py-2 w-full "
-        >
-          <IonInputPasswordToggle color={"success"} slot="end" />
-        </IonInput>
-        {errors.password && (
-          <p className="text-[#F2E205]">{errors.password.message}</p>
-        )}
-      </div>
-
-      <button
+      <Button
+        className="w-full bg-red-800 text-white"
         type="submit"
-        className="w-full rounded bg-custom-orange px-4 py-2 text-white"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Enviando..." : "Cadastrar"}
-      </button>
+      </Button>
     </form>
-  )
-}
+  );
+};
 
-export default SignUpForm
+export default SignUpForm;
