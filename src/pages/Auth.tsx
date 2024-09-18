@@ -14,7 +14,7 @@ const Auth = () => {
             <button
               onClick={() => setIsSignIn(true)}
               className={`px-6 py-2 text-white ${
-                isSignIn ? "#F2A81D" : "bg-custom-dark"
+                isSignIn ? "#F2A81D" : "bg-custom-maroon"
               } hover:bg-custom-dark active:bg-custom-dark focus:outline-none focus:ring-2 focus:ring-custom-orange focus:ring-opacity-50 rounded transition-all duration-300`}
             >
               Logar
@@ -22,7 +22,7 @@ const Auth = () => {
             <button
               onClick={() => setIsSignIn(false)}
               className={`px-6 py-2 text-white ${
-                !isSignIn ? "#F2A81D" : "bg-custom-dark"
+                !isSignIn ? "#F2A81D" : "bg-custom-maroon"
               } hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 rounded transition-all duration-300`}
             >
               Cadastrar

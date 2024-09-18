@@ -3,7 +3,7 @@ import ChurrascometroForm from "../components/churascometro/multi-step-form"
 
 const RadioPage = () => (
   <>
-    <IonContent className="bg-custom-dark">
+    <IonContent className="">
       <div
         style={{
           display: "flex",

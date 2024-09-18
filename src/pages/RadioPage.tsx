@@ -1,23 +1,22 @@
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react"
+import Recipes from "../components/Recipes"
 
 const RadioPage = () => (
   <>
-    <IonHeader>
-    </IonHeader>
+    <IonHeader></IonHeader>
     <IonContent>
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
         }}
       >
-        Radio content
+        <Recipes />
       </div>
     </IonContent>
   </>
-);
+)
 
-export default RadioPage;
+export default RadioPage

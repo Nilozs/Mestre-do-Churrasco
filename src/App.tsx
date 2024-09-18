@@ -33,6 +33,7 @@ import LibraryPage from "./pages/LibraryPage"
 import RadioPage from "./pages/RadioPage"
 import SearchPage from "./pages/SearchPage"
 import "./theme/variables.css"
+import ProfilePage from "./pages/ProfilePage"
 
 setupIonicReact()
 
@@ -71,7 +72,7 @@ const App: React.FC = () => {
             <UserProfileHeader />
           </Link>
 
-          <IonContent className="bg-[#F23005]">
+          <IonContent className="">
             <IonList>
               <IonItem button routerLink="/churrascometro">
                 <img
@@ -127,6 +128,7 @@ const App: React.FC = () => {
               <Route path="/radio" component={RadioPage} />
               <Route path="/library" component={LibraryPage} />
               <Route path="/search" component={SearchPage} />
+              <Route path="/profile" component={ProfilePage} />
             </>
           )}
         </IonRouterOutlet>
