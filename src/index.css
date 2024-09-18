@@ -42,3 +42,9 @@ input::placeholder {
 .menu-custom-red {
   background-color: #f23005;
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
