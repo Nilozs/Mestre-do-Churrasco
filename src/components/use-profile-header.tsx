@@ -1,16 +1,16 @@
-import { IonAvatar, IonItem } from "@ionic/react";
-import React from "react";
-import { useUser } from "../libs/getUserById";
+import { IonAvatar, IonItem } from "@ionic/react"
+import React from "react"
+import { useUser } from "../libs/getUserById"
 
 const UserProfileHeader: React.FC = () => {
-  const storageUser = JSON.parse(localStorage?.getItem("user") ?? "{}");
-  const id_user = Number(storageUser.userId || 0);
+  const storageUser = JSON.parse(localStorage?.getItem("user") ?? "{}")
+  const id_user = Number(storageUser.userId || 0)
 
-  const { data: user, isLoading, isError } = useUser(id_user);
+  const { data: user, isLoading, isError } = useUser(id_user)
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error fetching user data</p>;
-  if (!user) return <p>No user data found</p>;
+  if (isLoading) return <p>Loading...</p>
+  if (isError) return <p>Error fetching user data</p>
+  if (!user) return <p>No user data found</p>
 
   return (
     <div className="relative h-52 w-full">
@@ -35,8 +35,7 @@ const UserProfileHeader: React.FC = () => {
         </IonItem>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserProfileHeader;
- 
+export default UserProfileHeader
