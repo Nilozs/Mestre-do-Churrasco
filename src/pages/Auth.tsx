@@ -10,7 +10,7 @@ const Auth = () => {
   return (
     <IonPage>
       <IonContent>
-        <div className="flex flex-col items-center justify-center h-full bg-white p-4">
+        <div className="flex flex-col items-center justify-center h-full bg-custom-red p-4">
           <div className="w-full max-w-md">
             <Tabs
               value={activeTab}
@@ -24,7 +24,12 @@ const Auth = () => {
                 >
                   Login
                 </TabsTrigger>
-                <TabsTrigger value="registrar" >Registrar</TabsTrigger>
+                <TabsTrigger
+                  value="registrar"
+                  className="bg-custom-dark active:bg-black text-white"
+                >
+                  Registrar
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="login">

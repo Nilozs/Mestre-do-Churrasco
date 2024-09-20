@@ -34,6 +34,7 @@ import RadioPage from "./pages/RadioPage"
 import SearchPage from "./pages/SearchPage"
 import "./theme/variables.css"
 import ProfilePage from "./pages/ProfilePage"
+import RecipeDetailPage from "./pages/RecipeDetailPage"
 
 setupIonicReact()
 
@@ -129,6 +130,8 @@ const App: React.FC = () => {
               <Route path="/library" component={LibraryPage} />
               <Route path="/search" component={SearchPage} />
               <Route path="/profile" component={ProfilePage} />
+              <Route path="/recipes/:id" component={RecipeDetailPage} />
+
             </>
           )}
         </IonRouterOutlet>
