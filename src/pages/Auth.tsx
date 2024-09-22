@@ -10,7 +10,7 @@ const Auth = () => {
   return (
     <IonPage>
       <IonContent>
-        <div className="flex flex-col items-center justify-center h-full bg-custom-red p-4">
+        <div className="flex flex-col items-center justify-center h-full p-4">
           <div className="w-full max-w-md">
             <Tabs
               value={activeTab}
