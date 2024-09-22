@@ -43,7 +43,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(
     () => !localStorage.getItem("loadingCompleted"),
   )
-  const router = useIonRouter()
+  const router = useIonRouter() 
 
   useEffect(() => {
     if (loading) {
@@ -68,6 +68,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
+
         <IonMenu contentId="main-content">
           <Link to="/profile">
             <UserProfileHeader />
@@ -111,6 +112,7 @@ const App: React.FC = () => {
           </IonContent>
         </IonMenu>
 
+
         <IonRouterOutlet id="main-content" className="">
           {loading ? (
             <LoadingScreen />
@@ -119,7 +121,9 @@ const App: React.FC = () => {
               <IonHeader>
                 <IonToolbar>
                   <IonMenuButton slot="start" />
-                  <IonTitle><Link to="/home">Gril Nota Mil</Link></IonTitle>
+                  <IonTitle>
+                    <Link to="/home">Gril Nota Mil</Link>
+                  </IonTitle>
                 </IonToolbar>
               </IonHeader>
 
@@ -131,7 +135,6 @@ const App: React.FC = () => {
               <Route path="/search" component={SearchPage} />
               <Route path="/profile" component={ProfilePage} />
               <Route path="/recipes/:id" component={RecipeDetailPage} />
-
             </>
           )}
         </IonRouterOutlet>
