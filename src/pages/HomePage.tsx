@@ -5,14 +5,7 @@ import ChurrascometroForm from "../components/churascometro/multi-step-form"
 const RadioPage = () => (
   <>
     <IonContent className="">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100%",
-        }}
-      >
+      <div>
         <Home />
       </div>
     </IonContent>

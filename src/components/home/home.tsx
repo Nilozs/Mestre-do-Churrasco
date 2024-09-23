@@ -11,7 +11,7 @@ type Props = {}
 const Home = (props: Props) => {
   return (
     <section>
-      <div className="max-w-xl mx-auto bg-gray-50 h-screen p-4">
+      <div className=" mx-auto bg-gray-50 h-screen p-4">
         <LocationBar />
         <SearchBar />
         <BannerHome />
