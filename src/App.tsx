@@ -32,7 +32,6 @@ import HomePage from "./pages/HomePage"
 import LibraryPage from "./pages/LibraryPage"
 import RadioPage from "./pages/RadioPage"
 import SearchPage from "./pages/SearchPage"
-import "./theme/variables.css"
 import ProfilePage from "./pages/ProfilePage"
 import RecipeDetailPage from "./pages/RecipeDetailPage"
 
@@ -122,7 +121,7 @@ const App: React.FC = () => {
                 <IonToolbar>
                   <IonMenuButton slot="start" />
                   <IonTitle>
-                    <Link to="/home">Gril Nota Mil</Link>
+                    <Link to="/home">Mestre do churrasco</Link>
                   </IonTitle>
                 </IonToolbar>
               </IonHeader>

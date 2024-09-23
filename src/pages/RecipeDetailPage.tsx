@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { recipes } from "@/data/recipes"
-import { Heart, MapPin, Star } from "lucide-react"
-import { useHistory, useParams } from "react-router-dom"
+import { Button } from "@/components/ui/button";
+import { recipes } from "@/data/recipes";
+import { Heart } from "lucide-react";
+import { useHistory, useParams } from "react-router-dom";
 
 const RecipeDetailPage = () => {
   const history = useHistory();
@@ -45,18 +45,22 @@ const RecipeDetailPage = () => {
           className="w-full h-64 object-cover"
         />
       </div>
-      <div className="flex-1 p-6 bg-white rounded-t-3xl -mt-6">
+      <div className="flex-1 p-6 bg-white rounded-t-3xl -mt-6 overflow-y-auto">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">{recipe.name}</h1>
+            <h1 className="text-2xl font-bold text-gray-800 break-words">
+              {recipe.name}
+            </h1>
           </div>
           <Heart className="w-6 h-6 text-gray-400" />
         </div>
-        <p className="text-gray-600 mb-6">{recipe.instructions}</p>
+        <p className="text-gray-600 mb-6 break-words">{recipe.instructions}</p>
         <div className="mb-4">
           <h2 className="font-semibold text-gray-800 mb-2">Ingredientes</h2>
           <ul className="list-disc list-inside text-gray-600 max-h-48 overflow-y-auto">
-            {recipe.ingredientes}
+            {recipe.ingredientes.map((ingrediente, index) => (
+              <li key={index}>{ingrediente}</li>
+            ))}
           </ul>
         </div>
       </div>

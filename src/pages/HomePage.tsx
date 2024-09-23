@@ -1,3 +1,4 @@
+import Home from "@/components/home/home"
 import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react"
 import ChurrascometroForm from "../components/churascometro/multi-step-form"
 
@@ -12,7 +13,7 @@ const RadioPage = () => (
           height: "100%",
         }}
       >
-       fodase
+        <Home />
       </div>
     </IonContent>
   </>
