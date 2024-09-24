@@ -78,7 +78,7 @@ const LoadingScreen: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Grilreal
+          Mestre do churrasco
         </motion.h1>
       </div>
     </div>
