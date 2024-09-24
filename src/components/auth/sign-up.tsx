@@ -28,6 +28,13 @@ const SignUpForm = () => {
       />
       {errors.password && <p className="text-[#F2E205]">{errors.password.message}</p>}
 
+      <Input
+        type="text"
+        placeholder="Celular"
+        {...register("phone")}
+      />
+      {errors.phone && <p className="text-[#F2E205]">{errors.phone.message}</p>}
+
       <Button
         className="w-full bg-red-800 text-white"
         type="submit"
