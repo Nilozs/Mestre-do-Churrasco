@@ -1,5 +1,4 @@
 import { IonIcon, useIonRouter } from "@ionic/react";
-import { logoFacebook, logoInstagram, logoTwitter } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/middleware";
 import { motion } from "framer-motion";

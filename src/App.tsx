@@ -30,10 +30,11 @@ import Auth from "./pages/Auth"
 import ChurrasPage from "./pages/ChurrasPage"
 import HomePage from "./pages/HomePage"
 import LibraryPage from "./pages/LibraryPage"
-import RadioPage from "./pages/RadioPage"
-import SearchPage from "./pages/SearchPage"
+import MarketDetailPage from "./pages/MarketDetailPage"
 import ProfilePage from "./pages/ProfilePage"
+import RadioPage from "./pages/RadioPage"
 import RecipeDetailPage from "./pages/RecipeDetailPage"
+import SearchPage from "./pages/SearchPage"
 
 setupIonicReact()
 
@@ -42,7 +43,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(
     () => !localStorage.getItem("loadingCompleted"),
   )
-  const router = useIonRouter() 
+  const router = useIonRouter()
 
   useEffect(() => {
     if (loading) {
@@ -67,7 +68,6 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-
         <IonMenu contentId="main-content">
           <Link to="/profile">
             <UserProfileHeader />
@@ -111,7 +111,6 @@ const App: React.FC = () => {
           </IonContent>
         </IonMenu>
 
-
         <IonRouterOutlet id="main-content" className="">
           {loading ? (
             <LoadingScreen />
@@ -134,6 +133,8 @@ const App: React.FC = () => {
               <Route path="/search" component={SearchPage} />
               <Route path="/profile" component={ProfilePage} />
               <Route path="/recipes/:id" component={RecipeDetailPage} />
+              <Route path="/market/:id" component={MarketDetailPage} />
+              <Route path="/churrascaria/:id" component={RecipeDetailPage} />
             </>
           )}
         </IonRouterOutlet>

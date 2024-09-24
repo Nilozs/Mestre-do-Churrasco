@@ -27,7 +27,7 @@ const RadioPage = () => {
     <>
       <IonContent>
         <div className="flex items-center justify-center h-full bg-gray-50">
-          <div className="max-w-xl w-full mx-auto bg-white rounded-lg shadow-lg p-6">
+          <div className=" w-full mx-auto bg-white rounded-lg shadow-lg p-6">
             <Header />
 
             <CategoryCarousel
