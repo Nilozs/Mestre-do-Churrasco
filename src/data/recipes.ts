@@ -13,7 +13,7 @@ export const recipes = [
       "2 colheres de sopa de azeite de oliva",
       "1 colher de sopa de salsinha picada",
       "Sal a gosto",
-      "50g de queijo parmesão ralado (opcional)"
+      "50g de queijo parmesão ralado (opcional)",
     ],
   },
   {
@@ -33,7 +33,7 @@ export const recipes = [
       "1/2 xícara de azeitonas verdes picadas (opcional)",
       "2 xícaras de farinha de mandioca",
       "Salsinha e cebolinha picadas a gosto",
-      "Sal e pimenta-do-reino a gosto"
+      "Sal e pimenta-do-reino a gosto",
     ],
   },
   {
@@ -51,16 +51,15 @@ export const recipes = [
       "1/4 de xícara de azeite de oliva",
       "Sal a gosto",
       "Pimenta-do-reino a gosto (opcional)",
-      "1/4 de xícara de salsinha picada (opcional)"
+      "1/4 de xícara de salsinha picada (opcional)",
     ],
   },
   {
     id: 4,
-    name: "Teste",
+    name: "Coração de frango",
     category: "Bovino",
     image: "/recipe2.jpeg",
-    instructions:
-      "Tempere o pernil com alho e ervas, asse em fogo médio por 3 horas.",
+    instructions: "Simples, saboroso e uma ótima opção para o churrasco!",
     ingredientes: [
       "2 tomates médios picados",
       "1 cebola pequena picada",
@@ -69,14 +68,14 @@ export const recipes = [
       "1/4 de xícara de azeite de oliva",
       "Sal a gosto",
       "Pimenta-do-reino a gosto (opcional)",
-      "1/4 de xícara de salsinha picada (opcional)"
+      "1/4 de xícara de salsinha picada (opcional)",
     ],
   },
   {
     id: 5,
     name: "Salmão Grelhado",
     category: "Peixe",
-    image: "/recipe5.jpeg",
+    image: "/image-salmao.png",
     instructions:
       "Tempere o salmão com azeite e sal e grelhe por 15 minutos, virando uma vez.",
     ingredientes: [
@@ -87,7 +86,7 @@ export const recipes = [
       "1/4 de xícara de azeite de oliva",
       "Sal a gosto",
       "Pimenta-do-reino a gosto (opcional)",
-      "1/4 de xícara de salsinha picada (opcional)"
+      "1/4 de xícara de salsinha picada (opcional)",
     ],
   },
   {
@@ -105,7 +104,7 @@ export const recipes = [
       "1/4 de xícara de azeite de oliva",
       "Sal a gosto",
       "Pimenta-do-reino a gosto (opcional)",
-      "1/4 de xícara de salsinha picada (opcional)"
+      "1/4 de xícara de salsinha picada (opcional)",
     ],
   },
-];
+]

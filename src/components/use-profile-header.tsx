@@ -24,7 +24,7 @@ const UserProfileHeader: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
       <div className="relative z-10 flex items-center p-4">
-        <IonAvatar className="mr-4 mt-16">
+        {/* <IonAvatar className="mr-4 mt-16">
           <img
             alt="Silhouette of a person's head"
             src="https://ionicframework.com/docs/img/demos/avatar.svg"
@@ -32,7 +32,7 @@ const UserProfileHeader: React.FC = () => {
         </IonAvatar>
         <IonItem lines="full" className="mt-16">
           {user.name}
-        </IonItem>
+        </IonItem> */}
       </div>
     </div>
   )
