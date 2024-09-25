@@ -1,5 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
+import PaginaPesquisa from '@/components/search/Sesrch';
 
 const LibraryPage = () => (
   <>
@@ -14,7 +15,7 @@ const LibraryPage = () => (
           height: '100%',
         }}
       >
-        Library content
+        fds
       </div>
     </IonContent>
   </>

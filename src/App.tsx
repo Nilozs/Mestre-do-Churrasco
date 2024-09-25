@@ -34,7 +34,6 @@ import MarketDetailPage from "./pages/MarketDetailPage"
 import ProfilePage from "./pages/ProfilePage"
 import RadioPage from "./pages/RadioPage"
 import RecipeDetailPage from "./pages/RecipeDetailPage"
-import SearchPage from "./pages/SearchPage"
 
 setupIonicReact()
 
@@ -151,7 +150,6 @@ const App: React.FC = () => {
               <Route path="/churrascometro" component={ChurrasPage} />
               <Route path="/radio" component={RadioPage} />
               <Route path="/library" component={LibraryPage} />
-              <Route path="/search" component={SearchPage} />
               <Route path="/profile" component={ProfilePage} />
               <Route path="/recipes/:id" component={RecipeDetailPage} />
               <Route path="/market/:id" component={MarketDetailPage} />

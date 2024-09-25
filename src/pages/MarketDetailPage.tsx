@@ -64,7 +64,7 @@ const MarketDetailPage = () => {
               <span>{mercado.tempoEntrega}</span>
             </div>
           </div>
-          <h1 className="text-xl font-bold mb-1">{mercado.nome}</h1>
+          <h1 className="text-xl font-bold mb-1 text-black">{mercado.nome}</h1>
           <p className="text-sm text-gray-500 mb-4">{mercado.descricao}</p>
 
           <MarketDetails />
