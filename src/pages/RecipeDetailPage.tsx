@@ -19,8 +19,8 @@ const RecipeDetailPage = () => {
   }
 
   return (
-    <MaxWidthWrapper>
-      <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-gray-100">
+      <MaxWidthWrapper>
         <div className="relative">
           <button
             className="absolute top-4 left-4 p-2 bg-white rounded-full shadow-md"
@@ -68,8 +68,8 @@ const RecipeDetailPage = () => {
             </ul>
           </div>
         </div>
-      </div>
-    </MaxWidthWrapper>
+      </MaxWidthWrapper>
+    </div>
   )
 }
 

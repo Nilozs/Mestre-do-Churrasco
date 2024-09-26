@@ -1,6 +1,6 @@
 import { MaxWidthWrapper } from "@/components/animation"
 import MarketDetails from "@/components/home/market.detail"
-import { mercadosChurrasco } from "@/data/market"
+import { churrascariasCampoGrande } from "@/data/steakhouse"
 import {
   ArrowBigRight,
   ChevronLeft,
@@ -11,11 +11,11 @@ import {
 } from "lucide-react"
 import { useHistory, useParams } from "react-router-dom"
 
-const MarketDetailPage = () => {
+const BarbecuePage = () => {
   const history = useHistory()
   const { id } = useParams<{ id: string }>()
 
-  const mercado = mercadosChurrasco.find(
+  const mercado = churrascariasCampoGrande.find(
     (mercado) => mercado.id === parseInt(id),
   )
 
@@ -54,24 +54,13 @@ const MarketDetailPage = () => {
                 {mercado.rating}
               </span>
             </div>
-            <div className="flex items-center bg-green-100 rounded-md px-2 py-1">
-              <span className="text-sm font-semibold text-custom-red">
-                {mercado.freteGratis ? "Frete Grátis" : "Sem Frete Grátis"}
-              </span>
-            </div>
-            <div className="flex items-center text-sm text-gray-500">
-              <Clock className="w-4 h-4 mr-1" />
-              <span>{mercado.tempoEntrega}</span>
-            </div>
           </div>
           <h1 className="text-xl font-bold mb-1 text-black">{mercado.nome}</h1>
           <p className="text-sm text-gray-500 mb-4">{mercado.descricao}</p>
-
-          <MarketDetails />
         </div>
       </MaxWidthWrapper>
     </div>
   )
 }
 
-export default MarketDetailPage
+export default BarbecuePage

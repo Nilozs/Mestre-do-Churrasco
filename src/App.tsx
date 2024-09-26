@@ -27,6 +27,7 @@ import UserProfileHeader from "./components/use-profile-header"
 import { useAuth } from "./context/middleware"
 import "./index.css"
 import Auth from "./pages/Auth"
+import BarbecuePage from "./pages/BarbecuePage"
 import ChurrasPage from "./pages/ChurrasPage"
 import HomePage from "./pages/HomePage"
 import LibraryPage from "./pages/LibraryPage"
@@ -153,7 +154,7 @@ const App: React.FC = () => {
               <Route path="/profile" component={ProfilePage} />
               <Route path="/recipes/:id" component={RecipeDetailPage} />
               <Route path="/market/:id" component={MarketDetailPage} />
-              <Route path="/churrascaria/:id" component={RecipeDetailPage} />
+              <Route path="/churrascaria/:id" component={BarbecuePage} />
             </>
           )}
         </IonRouterOutlet>
