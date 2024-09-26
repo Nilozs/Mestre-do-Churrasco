@@ -20,13 +20,13 @@ const Auth = () => {
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger
                   value="login"
-                  className="bg-custom-dark active:bg-black text-white"
+                  className=""
                 >
                   Login
                 </TabsTrigger>
                 <TabsTrigger
                   value="registrar"
-                  className="bg-custom-dark active:bg-black text-white"
+                  className=""
                 >
                   Registrar
                 </TabsTrigger>

@@ -29,7 +29,7 @@ const MarketDetailPage = () => {
 
   return (
     <MaxWidthWrapper>
-      <div className="mx-auto bg-white h-screen flex flex-col">
+      <div className="mx-auto bg-white h-screen flex flex-col space-y-2">
         <div className="relative flex-shrink-0">
           <img
             src={mercado.img}
