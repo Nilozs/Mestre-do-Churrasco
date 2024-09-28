@@ -10,13 +10,18 @@
         {
             "source": "/(.*)",
             "destination": "/index.html"
-        }
-    ],
-    "routes": [
+        },
         {
             "src": "/(.*)",
             "dest": "./index.js",
-            "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "PATCH",
+                "OPTIONS"
+            ],
             "headers": {
                 "Access-Control-Allow-Origin": "*"
             }
