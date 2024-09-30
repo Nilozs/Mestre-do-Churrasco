@@ -1,12 +1,10 @@
 import { MaxWidthWrapper } from "@/components/animation"
-import { Button } from "@/components/ui/button"
 import { recipes } from "@/data/recipes"
 import { Heart } from "lucide-react"
 import { useHistory, useParams } from "react-router-dom"
 
 const RecipeDetailPage = () => {
   const history = useHistory()
-
   const { id } = useParams<{ id: string }>()
   const recipe = recipes.find((recipe) => recipe.id === parseInt(id))
 
@@ -43,11 +41,11 @@ const RecipeDetailPage = () => {
           </button>
           <img
             src={recipe.image}
-            alt="Chicken Burger"
+            alt={recipe.name}
             className="w-full h-64 object-cover"
           />
         </div>
-        <div className="flex-1 p-6 bg-white rounded-t-3xl -mt-6 overflow-y-auto">
+        <div className="flex-1 p-6 bg-white rounded-t-3xl -mt-6 overflow-y-auto space-y-5">
           <div className="flex justify-between items-start mb-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-800 break-words">
@@ -56,9 +54,19 @@ const RecipeDetailPage = () => {
             </div>
             <Heart className="w-6 h-6 text-gray-400" />
           </div>
-          <p className="text-gray-600 mb-6 break-words">
-            {recipe.instructions}
-          </p>
+
+          {/* Vídeo do YouTube */}
+          <div className="aspect-w-16 aspect-video aspect-h-9 mb-6 overflow-auto">
+            <iframe
+              className="w-screen h-screen "
+              src={recipe.video} // Use o ID do vídeo
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          {/* Ingredientes */}
           <div className="mb-4">
             <h2 className="font-semibold text-gray-800 mb-2">Ingredientes</h2>
             <ul className="list-disc list-inside text-gray-600 max-h-48 overflow-y-auto">

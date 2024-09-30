@@ -15,6 +15,7 @@ export const recipes = [
       "Sal a gosto",
       "50g de queijo parmesão ralado (opcional)",
     ],
+    video: "https://youtu.be/ab-ZKJXw_Xo?si=KbKqD0QRIn27MkjV",
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ export const recipes = [
       "Salsinha e cebolinha picadas a gosto",
       "Sal e pimenta-do-reino a gosto",
     ],
+    video: "https://youtu.be/N7Z1CzO1feE?si=MUW-oIB2kRqeESpI",
   },
   {
     id: 3,
@@ -53,6 +55,7 @@ export const recipes = [
       "Pimenta-do-reino a gosto (opcional)",
       "1/4 de xícara de salsinha picada (opcional)",
     ],
+    video: "https://youtu.be/jQwqO9fQZjY?si=wE0gj-kXRLK4gbug",
   },
   {
     id: 4,
@@ -70,6 +73,7 @@ export const recipes = [
       "Pimenta-do-reino a gosto (opcional)",
       "1/4 de xícara de salsinha picada (opcional)",
     ],
+    video: "https://youtu.be/ePSsJ88_TSw?si=qqH3c1wMvseIC0bx",
   },
   {
     id: 5,
@@ -88,6 +92,7 @@ export const recipes = [
       "Pimenta-do-reino a gosto (opcional)",
       "1/4 de xícara de salsinha picada (opcional)",
     ],
+    video: "https://youtu.be/RG-2T_EPLIg?si=Yvy926w5t1wPJKCz",
   },
   {
     id: 7,
@@ -106,5 +111,6 @@ export const recipes = [
       "Pimenta-do-reino a gosto (opcional)",
       "1/4 de xícara de salsinha picada (opcional)",
     ],
+    video: "https://youtu.be/XU4b2YxsrKg?si=-TIY4NgWeZs-vP3t",
   },
 ]
