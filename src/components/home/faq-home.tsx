@@ -42,6 +42,21 @@ export function AccordionHOme() {
           textura mais macia e agradável ao paladar.
         </AccordionContent>
       </AccordionItem>
+      <AccordionItem value="item-4">
+        <AccordionTrigger>Dicas para seu churrasco</AccordionTrigger>
+        <AccordionContent>
+
+          <div className="aspect-w-16 aspect-video aspect-h-9 mb-6 overflow-auto">
+            <iframe
+              className="w-screen h-screen "
+              src="https://youtu.be/VsegCxDuTYg?si=M9zoMMgnfKfjmH2M" 
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
     </Accordion>
   )
 }

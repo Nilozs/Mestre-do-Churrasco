@@ -42,7 +42,7 @@ const RecipeDetailPage = () => {
           <img
             src={recipe.image}
             alt={recipe.name}
-            className="w-full h-64 object-cover"
+            className="w-full h-44 object-cover"
           />
         </div>
         <div className="flex-1 p-6 bg-white rounded-t-3xl -mt-6 overflow-y-auto space-y-5">
@@ -55,18 +55,17 @@ const RecipeDetailPage = () => {
             <Heart className="w-6 h-6 text-gray-400" />
           </div>
 
-          {/* Vídeo do YouTube */}
           <div className="aspect-w-16 aspect-video aspect-h-9 mb-6 overflow-auto">
             <iframe
               className="w-screen h-screen "
-              src={recipe.video} // Use o ID do vídeo
+              src={recipe.video} 
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
 
-          {/* Ingredientes */}
+
           <div className="mb-4">
             <h2 className="font-semibold text-gray-800 mb-2">Ingredientes</h2>
             <ul className="list-disc list-inside text-gray-600 max-h-48 overflow-y-auto">
