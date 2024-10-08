@@ -5,7 +5,7 @@ import { useAuth } from "../context/middleware";
 import { useIonToast, useIonRouter } from '@ionic/react';
 
 const loginUser = async (users: Users): Promise<LoginResponse> => {
-  const { data } = await api.post<LoginResponse>("/api/login", users);
+  const { data } = await api.post<LoginResponse>("/login", users);
   return data;
 };
 

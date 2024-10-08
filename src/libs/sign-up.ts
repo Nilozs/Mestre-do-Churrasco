@@ -3,7 +3,7 @@ import { User } from "../@types/user"
 import { api } from "./api"
 
 const createUser = async (user: User) => {
-  const { data } = await api.post<User>("/api/create-users", user)
+  const { data } = await api.post<User>("/create-users", user)
   return data
 }
 

@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
 }
 
 export const api = axios.create({
-  baseURL: "https://gochurrascos.onrender.com",
+  baseURL: "http://localhost:8080/api",
   headers: {
     Authorization: token ? `Bearer ${token}` : ``,
   },

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
 const fetchUser = async (userId: number) => {
-  const { data } = await axios.get(`/api/user/${userId}`)
+  const { data } = await axios.get(`/user/${userId}`)
   return data
 }
 
