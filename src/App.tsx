@@ -27,6 +27,7 @@ import UserProfileHeader from "./components/use-profile-header"
 import { useAuth } from "./context/middleware"
 import "./index.css"
 import Auth from "./pages/Auth"
+import AvaliablePage from "./pages/AvaliablePage"
 import BarbecuePage from "./pages/BarbecuePage"
 import ChurrasPage from "./pages/ChurrasPage"
 import HomePage from "./pages/HomePage"
@@ -96,6 +97,14 @@ const App: React.FC = () => {
 
           <IonContent className="">
             <IonList>
+              <IonItem button routerLink="/home">
+                <img
+                  src="/bbq.png"
+                  alt="churrasco icon"
+                  className="w-9 h-9 mr-4"
+                />
+                <IonLabel className="mb-1">Inicio</IonLabel>
+              </IonItem>
               <IonItem button routerLink="/churrascometro">
                 <img
                   src="/churrasco.png"
@@ -120,13 +129,13 @@ const App: React.FC = () => {
                 />
                 <IonLabel className="mb-1">Faça sua pesquisa</IonLabel>
               </IonItem>
-              <IonItem button routerLink="/search">
+              <IonItem button routerLink="/avaliable">
                 <img
-                  src="/carrinho-vazio.png"
+                  src="/star.png"
                   alt="churrasco icon"
                   className="w-9 h-9 mr-4 text-red-700"
                 />
-                <IonLabel className="mb-1">Kits de churrasco</IonLabel>
+                <IonLabel className="mb-1">Favoritos</IonLabel>
               </IonItem>
             </IonList>
           </IonContent>
@@ -152,6 +161,7 @@ const App: React.FC = () => {
               <Route path="/radio" component={RadioPage} />
               <Route path="/library" component={LibraryPage} />
               <Route path="/profile" component={ProfilePage} />
+              <Route path="/avaliable" component={AvaliablePage} />
               <Route path="/recipes/:id" component={RecipeDetailPage} />
               <Route path="/market/:id" component={MarketDetailPage} />
               <Route path="/churrascaria/:id" component={BarbecuePage} />

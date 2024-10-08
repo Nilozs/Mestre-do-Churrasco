@@ -1,23 +1,17 @@
 import { MaxWidthWrapper } from "@/components/animation"
-import MarketDetails from "@/components/home/market.detail"
 import { churrascariasCampoGrande } from "@/data/steakhouse"
-import {
-  ArrowBigRight,
-  ChevronLeft,
-  Clock,
-  MoreHorizontal,
-  Plus,
-  Star,
-} from "lucide-react"
+import { useFavorites } from "@/hooks/useFavorites"
+import { ChevronLeft, Heart, MoreHorizontal, Star } from "lucide-react"
 import { useHistory, useParams } from "react-router-dom"
 
 const BarbecuePage = () => {
   const history = useHistory()
   const { id } = useParams<{ id: string }>()
-
   const mercado = churrascariasCampoGrande.find(
     (mercado) => mercado.id === parseInt(id),
   )
+
+  const { isFavorite, toggleFavorite } = useFavorites(mercado)
 
   if (!mercado) {
     return <p>Mercado não encontrado!</p>
@@ -44,6 +38,16 @@ const BarbecuePage = () => {
           </button>
           <button className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
             <MoreHorizontal className="w-6 h-6 text-gray-800" />
+          </button>
+          <button
+            className="absolute top-4 right-16 bg-white rounded-full p-2 shadow-md"
+            onClick={toggleFavorite}
+          >
+            <Heart
+              className={`w-6 h-6 ${
+                isFavorite ? "text-red-500" : "text-gray-300"
+              }`}
+            />
           </button>
         </div>
         <div className="p-4 flex-grow overflow-auto">

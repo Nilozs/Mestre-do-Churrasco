@@ -1,23 +1,18 @@
 import { MaxWidthWrapper } from "@/components/animation"
 import MarketDetails from "@/components/home/market.detail"
 import { mercadosChurrasco } from "@/data/market"
-import {
-  ArrowBigRight,
-  ChevronLeft,
-  Clock,
-  MoreHorizontal,
-  Plus,
-  Star,
-} from "lucide-react"
+import { useFavorites } from "@/hooks/useFavorites"
+import { ChevronLeft, Heart, MoreHorizontal, Star } from "lucide-react"
 import { useHistory, useParams } from "react-router-dom"
 
 const MarketDetailPage = () => {
   const history = useHistory()
   const { id } = useParams<{ id: string }>()
-
   const mercado = mercadosChurrasco.find(
     (mercado) => mercado.id === parseInt(id),
   )
+
+  const { isFavorite, toggleFavorite } = useFavorites(mercado)
 
   if (!mercado) {
     return <p>Mercado não encontrado!</p>
@@ -45,6 +40,16 @@ const MarketDetailPage = () => {
           <button className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
             <MoreHorizontal className="w-6 h-6 text-gray-800" />
           </button>
+          <button
+            className="absolute top-4 right-16 bg-white rounded-full p-2 shadow-md"
+            onClick={toggleFavorite}
+          >
+            <Heart
+              className={`w-6 h-6 ${
+                isFavorite ? "text-red-500" : "text-gray-300"
+              }`}
+            />
+          </button>
         </div>
         <div className="p-4 flex-grow overflow-auto">
           <div className="flex items-center space-x-2 mb-2">
@@ -58,10 +63,6 @@ const MarketDetailPage = () => {
               <span className="text-sm font-semibold text-custom-red">
                 {mercado.freteGratis ? "Frete Grátis" : "Sem Frete Grátis"}
               </span>
-            </div>
-            <div className="flex items-center text-sm text-gray-500">
-              <Clock className="w-4 h-4 mr-1" />
-              <span>{mercado.tempoEntrega}</span>
             </div>
           </div>
           <h1 className="text-xl font-bold mb-1 text-black">{mercado.nome}</h1>

@@ -1,12 +1,25 @@
 import { MaxWidthWrapper } from "@/components/animation"
 import { recipes } from "@/data/recipes"
 import { Heart } from "lucide-react"
+import { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 
 const RecipeDetailPage = () => {
   const history = useHistory()
   const { id } = useParams<{ id: string }>()
   const recipe = recipes.find((recipe) => recipe.id === parseInt(id))
+  const [isFavorited, setIsFavorited] = useState(false)
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites")
+    if (storedFavorites) {
+      const favorites = JSON.parse(storedFavorites)
+      const isAlreadyFavorited = favorites.some(
+        (fav: any) => fav.id === recipe?.id,
+      )
+      setIsFavorited(isAlreadyFavorited)
+    }
+  }, [recipe?.id])
 
   if (!recipe) {
     return <p>Receita não encontrada!</p>
@@ -14,6 +27,20 @@ const RecipeDetailPage = () => {
 
   const goBack = () => {
     history.goBack()
+  }
+
+  const toggleFavorite = () => {
+    const storedFavorites = localStorage.getItem("favorites")
+    let favorites = storedFavorites ? JSON.parse(storedFavorites) : []
+
+    if (isFavorited) {
+      favorites = favorites.filter((fav: any) => fav.id !== recipe.id)
+    } else {
+      favorites.push(recipe)
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites))
+    setIsFavorited(!isFavorited)
   }
 
   return (
@@ -52,19 +79,29 @@ const RecipeDetailPage = () => {
                 {recipe.name}
               </h1>
             </div>
-            <Heart className="w-6 h-6 text-gray-400" />
+            <button
+              onClick={toggleFavorite}
+              className={`p-2 rounded-full transition-colors duration-200 ${
+                isFavorited ? "bg-red-500" : "bg-gray-200"
+              }`}
+            >
+              <Heart
+                className={`w-6 h-6 transition-colors duration-200 ${
+                  isFavorited ? "text-white" : "text-gray-400"
+                }`}
+              />
+            </button>
           </div>
 
           <div className="aspect-w-16 aspect-video aspect-h-9 mb-6 overflow-auto">
             <iframe
               className="w-screen h-screen "
-              src={recipe.video} 
+              src={recipe.video}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
-
 
           <div className="mb-4">
             <h2 className="font-semibold text-gray-800 mb-2">Ingredientes</h2>
