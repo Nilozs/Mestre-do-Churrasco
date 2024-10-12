@@ -1,10 +1,10 @@
-import React from 'react'
+import Favorite from "@/components/Favorites/favorites"
 
-type Props = {}
-
-const AvaliablePage = (props: Props) => {
+const AvaliablePage = () => {
   return (
-    <div className='bg-white'>AvaliablePage</div>
+    <div className=" bg-white">
+      <Favorite />
+    </div>
   )
 }
 
