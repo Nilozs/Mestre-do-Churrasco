@@ -10,7 +10,7 @@ export default function FavoriteMeals() {
   return (
     <div className="max-w-md mx-auto min-h-screen text-black rounded-lg overflow-auto shadow-lg">
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Meal Menu</h1>
+        <h1 className="text-2xl font-bold mb-4">Favoritos</h1>
         <div className="relative mb-4">
           <Input
             type="text"

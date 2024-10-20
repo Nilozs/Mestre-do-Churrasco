@@ -6,9 +6,7 @@ const ChurrasPage = () => (
   <>
     <IonContent className="bg-custom-dark">
       <MaxWidthWrapper>
-        <div>
-          <ChurrascometroForm />
-        </div>
+       churascometro
       </MaxWidthWrapper>
     </IonContent>
   </>
