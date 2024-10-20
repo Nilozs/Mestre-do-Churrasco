@@ -54,7 +54,7 @@ export default function FavoriteMeals() {
             ))
           ) : (
             <p className="text-center text-gray-500">
-              No favorite meals found.
+              Nenhum favorito
             </p>
           )}
         </div>
