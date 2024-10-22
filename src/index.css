@@ -6,6 +6,10 @@
 .open-sans {
   font-family: "Open Sans", sans-serif;
 }
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
 
 label {
   color: black;

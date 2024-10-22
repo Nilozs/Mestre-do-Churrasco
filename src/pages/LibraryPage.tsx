@@ -1,3 +1,4 @@
+import CurrentLocationMap from "@/components/maps/location"
 import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react"
 import L, { LatLngTuple } from "leaflet"
 import "leaflet-defaulticon-compatibility"
@@ -35,24 +36,7 @@ const LibraryPage = () => (
   <>
     <IonHeader></IonHeader>
     <IonContent>
-      <div >
-        <MapContainer
-          center={[-22.9068, -43.1729]}
-          zoom={12}
-          style={{ height: "100vh", width: "100%" }}
-        >
-          <ResizeMap />
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; contributors'
-          />
-          {churrascarias.map((churrascaria, index) => (
-            <Marker key={index} position={churrascaria.position}>
-              <Popup>{churrascaria.name}</Popup>
-            </Marker>
-          ))}
-        </MapContainer>
-      </div>
+      <CurrentLocationMap />
     </IonContent>
   </>
 )
