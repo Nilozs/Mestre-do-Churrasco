@@ -9,8 +9,8 @@ const UserProfileHeader: React.FC = () => {
   const { data: user, isLoading, isError } = useUser(id_user)
 
   if (isLoading) return <p>Loading...</p>
-  if (isError) return <p>Error fetching user data</p>
-  if (!user) return <p>No user data found</p>
+  if (isError) return <p>Erro carregar os usuarios</p>
+  if (!user) return <p>Nenhum usuario encontrado</p>
 
   return (
     <div className="relative h-52 w-full">
