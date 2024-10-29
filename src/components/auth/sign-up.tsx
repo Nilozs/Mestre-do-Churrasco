@@ -1,9 +1,18 @@
-import { useSignUpForm } from "../../hooks/useSingUpForm";
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { IonIcon } from "@ionic/react";
+import { eye, eyeOff } from "ionicons/icons";
+import { useSignUpForm } from "@/hooks/useSingUpForm";
 
 const SignUpForm = () => {
   const { register, handleSubmit, handleCreateUser, errors, isSubmitting } = useSignUpForm();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit(handleCreateUser)}>
@@ -12,28 +21,37 @@ const SignUpForm = () => {
         placeholder="Nome Completo"
         {...register("name")}
       />
-      {errors.name && <p className="text-[#F2E205]">{errors.name.message}</p>}
+      {errors.name && <p className="text-custom-orange">{errors.name.message}</p>}
 
       <Input
         type="email"
         placeholder="Endereço de e-mail"
         {...register("email")}
       />
-      {errors.email && <p className="text-[#F2E205]">{errors.email.message}</p>}
+      {errors.email && <p className="text-custom-orange">{errors.email.message}</p>}
 
-      <Input
-        type="password"
-        placeholder="Senha"
-        {...register("password")}
-      />
-      {errors.password && <p className="text-[#F2E205]">{errors.password.message}</p>}
+      <div className="relative">
+        <Input
+          type={showPassword ? "text" : "password"}
+          placeholder="Senha"
+          {...register("password")}
+        />
+        <button
+          type="button"
+          onClick={togglePasswordVisibility}
+          className="absolute inset-y-0 right-3 flex items-center text-gray-600"
+        >
+          <IonIcon icon={showPassword ? eyeOff : eye} className="h-5 w-5" />
+        </button>
+      </div>
+      {errors.password && <p className="text-custom-orange">{errors.password.message}</p>}
 
       <Input
         type="text"
         placeholder="Celular"
         {...register("phone")}
       />
-      {errors.phone && <p className="text-[#F2E205]">{errors.phone.message}</p>}
+      {errors.phone && <p className="text-custom-orange">{errors.phone.message}</p>}
 
       <Button
         className="w-full bg-red-800 text-white"
@@ -47,3 +65,4 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
+
