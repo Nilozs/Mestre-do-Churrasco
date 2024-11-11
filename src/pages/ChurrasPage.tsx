@@ -1,12 +1,13 @@
 import { MaxWidthWrapper } from "@/components/animation"
-import InputsApi from "@/components/churascometro/inputs-api"
+import GeminiInReact from "@/components/churascometro/GeminiBot"
+
 import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react"
 
 const ChurrasPage = () => (
   <>
     <IonContent className="bg-custom-dark">
       <MaxWidthWrapper>
-        <InputsApi />
+        <GeminiInReact />
       </MaxWidthWrapper>
     </IonContent>
   </>
