@@ -66,7 +66,7 @@ export default function GeminiInReact() {
             <div
               className={`inline-block p-2 rounded-lg ${
                 message.role === "user"
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-black text-white text-primary-foreground"
                   : "bg-muted"
               }`}
             >
@@ -80,7 +80,7 @@ export default function GeminiInReact() {
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Digite sua mensagem..."
+            placeholder="Peça para IA calcular o churrasco"
             className="flex-1"
           />
           <Button type="submit" size="icon" disabled={loading}>
