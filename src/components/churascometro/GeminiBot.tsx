@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -32,7 +30,9 @@ export default function GeminiInReact() {
       try {
         setLoading(true)
         const model = genAI.getGenerativeModel({ model: "gemini-pro" })
-        const result = await model.generateContent(input)
+        const result = await model.generateContent(
+          `Responda em português: ${input}`,
+        )
         const botResponse: Message = {
           role: "bot",
           content: result.response.text(),
@@ -54,7 +54,7 @@ export default function GeminiInReact() {
   }
 
   return (
-    <div className="flex flex-col h-[600px] max-w-md mx-auto border rounded-lg overflow-hidden">
+    <div className="flex flex-col h-[600px]  max-w-md mx-auto overflow-hidden">
       <ScrollArea className="flex-1 p-4">
         {messages.map((message, index) => (
           <div
@@ -75,7 +75,7 @@ export default function GeminiInReact() {
           </div>
         ))}
       </ScrollArea>
-      <form onSubmit={handleSubmit} className="p-4 border-t">
+      <form onSubmit={handleSubmit} className="p-4 w-full border-t">
         <div className="flex items-center space-x-2">
           <Input
             value={input}
