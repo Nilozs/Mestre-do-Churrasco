@@ -131,6 +131,13 @@ const App: React.FC = () => {
                 <IonLabel className="mb-1">Componentes Favoritos</IonLabel>
               </IonItem>
             </IonList>
+            <IonItem button routerLink="/auth">
+                <img
+                  src="/sair.png"
+                  className="w-9 h-9 mr-4 text-blue-600"
+                />
+                <IonLabel className="mb-1">Sair da conta</IonLabel>
+              </IonItem>
           </IonContent>
         </IonMenu>
 
