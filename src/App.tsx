@@ -119,14 +119,14 @@ const App: React.FC = () => {
               <IonItem button routerLink="/library">
                 <img
                   src="/mapa.png"
-                  className="w-9 h-9 mr-4 text-red-700"
+                  className="w-9 h-9 mr-4 text-blue-600"
                 />
                 <IonLabel className="mb-1">Procure no mapa</IonLabel>
               </IonItem>
               <IonItem button routerLink="/avaliable">
                 <img
                   src="/star.png"
-                  className="w-9 h-9 mr-4 text-red-700"
+                  className="w-9 h-9 mr-4 text-blue-600"
                 />
                 <IonLabel className="mb-1">Componentes Favoritos</IonLabel>
               </IonItem>

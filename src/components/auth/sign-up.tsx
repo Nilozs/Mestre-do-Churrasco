@@ -21,14 +21,14 @@ const SignUpForm = () => {
         placeholder="Nome Completo"
         {...register("name")}
       />
-      {errors.name && <p className="text-custom-orange">{errors.name.message}</p>}
+      {errors.name && <p className="text-blue-600">{errors.name.message}</p>}
 
       <Input
         type="email"
         placeholder="Endereço de e-mail"
         {...register("email")}
       />
-      {errors.email && <p className="text-custom-orange">{errors.email.message}</p>}
+      {errors.email && <p className="text-blue-600">{errors.email.message}</p>}
 
       <div className="relative">
         <Input
@@ -44,17 +44,17 @@ const SignUpForm = () => {
           <IonIcon icon={showPassword ? eyeOff : eye} className="h-5 w-5" />
         </button>
       </div>
-      {errors.password && <p className="text-custom-orange">{errors.password.message}</p>}
+      {errors.password && <p className="text-blue-600">{errors.password.message}</p>}
 
       <Input
         type="text"
         placeholder="Celular"
         {...register("phone")}
       />
-      {errors.phone && <p className="text-custom-orange">{errors.phone.message}</p>}
+      {errors.phone && <p className="text-blue-600">{errors.phone.message}</p>}
 
       <Button
-        className="w-full bg-red-800 text-white"
+        className="w-full bg-blue-600 text-white"
         type="submit"
         disabled={isSubmitting}
       >

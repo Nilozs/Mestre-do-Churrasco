@@ -20,14 +20,15 @@ const SignIn = () => {
         type="email"
         placeholder="Endereço de e-mail"
         {...register("email")}
-        className={errors.email ? "border-red-500" : ""}
+        className={errors.email ? "border-blue-600" : ""}
       />
-      {errors.email && <p className="text-custom-orange">{errors.email.message}</p>}
+      {errors.email && <p className="text-blue-600">{errors.email.message}</p>}
       <div className="relative">
         <Input
           type={showPassword ? "text" : "password"}
           placeholder="Senha"
           {...register("password")}
+          className={errors.email ? "border-blue-600" : ""}
         />
         <button
           type="button"
@@ -37,15 +38,10 @@ const SignIn = () => {
           <IonIcon icon={showPassword ? eyeOff : eye} className="h-5 w-5" />
         </button>
       </div>
-      {errors.password && <p className="text-custom-orange">{errors.password.message}</p>}
-      <div className="text-right">
-        <a href="#" className="text-orange-500 text-sm">
-          Esqueceu a senha?
-        </a>
-      </div>
+      {errors.password && <p className="text-blue-600 ">{errors.password.message}</p>}
 
       <Button
-        className="w-full bg-red-800 text-white"
+        className="w-full bg-blue-600 text-white"
         type="submit"
         disabled={isSubmitting}
       >
