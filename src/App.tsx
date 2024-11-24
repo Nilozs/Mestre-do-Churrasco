@@ -114,7 +114,7 @@ const App: React.FC = () => {
                   src="/engrenagem.png"
                   className="w-9 h-9 mr-4"
                 />
-                <IonLabel className="mb-1">Componentes e Periféricos</IonLabel>
+                <IonLabel className="mb-1">Receitas</IonLabel>
               </IonItem>
               <IonItem button routerLink="/library">
                 <img
@@ -128,7 +128,7 @@ const App: React.FC = () => {
                   src="/star.png"
                   className="w-9 h-9 mr-4 text-red-700"
                 />
-                <IonLabel className="mb-1">Vídeos favoritos</IonLabel>
+                <IonLabel className="mb-1">Receitas favoritas</IonLabel>
               </IonItem>
             </IonList>
           </IonContent>
@@ -142,12 +142,8 @@ const App: React.FC = () => {
               <IonHeader>
                 <IonToolbar>
                   <IonMenuButton slot="start" />
-                  <IonTitle>  
-                      <img 
-                        src="robo.png"
-                        className="w-9 h-9 mr-2 inline-flex text-xl" 
-                      />
-                      <Link to="/home">Tecniloz</Link>
+                  <IonTitle>
+                    <Link to="/home">Pizzaria Niloz</Link>
                   </IonTitle>
                 </IonToolbar>
               </IonHeader>

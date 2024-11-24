@@ -104,10 +104,10 @@ const RecipeDetailPage = () => {
           </div>
 
           <div className="mb-4">
-            <h2 className="font-semibold text-gray-800 mb-2">Ingredientes</h2>
+            <h2 className="font-semibold text-gray-800 mb-2">Detalhes</h2>
             <ul className="list-disc list-inside text-gray-600 max-h-48 overflow-y-auto">
-              {recipe.ingredientes.map((ingrediente, index) => (
-                <li key={index}>{ingrediente}</li>
+              {recipe.detalhes?.map((detalhes, index) => (
+                <li key={index}>{detalhes}</li>
               ))}
             </ul>
           </div>
