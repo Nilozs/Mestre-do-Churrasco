@@ -10,7 +10,7 @@ const TopDiscount = () => {
       </div>
       <div className="grid grid-cols-2 gap-4">
         {churrascariasCampoGrande.map((churrascaria, index) => (
-          <Link key={index} to={`/churrascaria/${churrascaria.id}`}>
+          <Link key={index} to={`/componente/${churrascaria.id}`}>
             <Card>
               <CardContent className="p-2">
                 <div className="w-full h-24 bg-gray-200 rounded-lg mb-2">

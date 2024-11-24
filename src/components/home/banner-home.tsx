@@ -5,12 +5,12 @@ type Props = {}
 
 const BannerHome = (props: Props) => {
   return (
-    <Link to="/churrascometro">
+    <Link to="/gemini">
       <Card className=" bg-blue-600 text-white mb-6">
         <CardContent className="p-4 flex justify-between items-center">
           <div>
             <h2 className="font-bold text-lg">Pesquise sobre os componentes!</h2>
-            <Link to="/churrascometro">
+            <Link to="/gemini">
               <p className="text-sm">Tira suas duvidas com o Gemini</p>
             </Link>
           </div>

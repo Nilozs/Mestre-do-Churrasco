@@ -95,22 +95,22 @@ const App: React.FC = () => {
                   <img src="/Gimi.png" className="w-9 h-9 mr-4" />
                   <IonLabel className="mb-1">Inicio</IonLabel>
                 </IonItem>
-                  <IonItem button routerLink="/churrascometro">
+                  <IonItem button routerLink="/gemini">
                     <img
                       src="ponto-de-interrogacao.png"
                       className="w-9 h-9 mr-4"
                     />
                     <IonLabel className="mb-1">Conheça o Gemini</IonLabel>
                   </IonItem>
-                  <IonItem button routerLink="/radio">
+                  <IonItem button routerLink="/componentes">
                     <img src="/engrenagem.png" className="w-9 h-9 mr-4" />
                     <IonLabel className="mb-1">Componentes e Periféricos</IonLabel>
                   </IonItem>
-                  <IonItem button routerLink="/library">
+                  <IonItem button routerLink="/mapa">
                     <img src="/mapa.png" className="w-9 h-9 mr-4 text-blue-600" />
                     <IonLabel className="mb-1">Procure no mapa</IonLabel>
                   </IonItem>
-                  <IonItem button routerLink="/avaliable">
+                  <IonItem button routerLink="/favoritos">
                     <img src="/star.png" className="w-9 h-9 mr-4 text-blue-600" />
                     <IonLabel className="mb-1">Componentes Favoritos</IonLabel>
                   </IonItem>
@@ -146,14 +146,14 @@ const App: React.FC = () => {
 
               <Route path="/auth" component={Auth} />
               <Route path="/home" component={HomePage} />
-              <Route path="/churrascometro" component={ChurrasPage} />
-              <Route path="/radio" component={RadioPage} />
-              <Route path="/library" component={LibraryPage} />
+              <Route path="/gemini" component={ChurrasPage} />
+              <Route path="/componentes" component={RadioPage} />
+              <Route path="/mapa" component={LibraryPage} />
               <Route path="/profile" component={ProfilePage} />
-              <Route path="/avaliable" component={AvaliablePage} />
-              <Route path="/recipes/:id" component={RecipeDetailPage} />
-              <Route path="/market/:id" component={MarketDetailPage} />
-              <Route path="/churrascaria/:id" component={BarbecuePage} />
+              <Route path="/favoritos" component={AvaliablePage} />
+              <Route path="/itens/:id" component={RecipeDetailPage} />
+              <Route path="/lojas/:id" component={MarketDetailPage} />
+              <Route path="/componente/:id" component={BarbecuePage} />
             </>
           )}
         </IonRouterOutlet>

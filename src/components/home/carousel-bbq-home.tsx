@@ -11,7 +11,7 @@ const TopCategories = () => {
         {mercadosChurrasco.map((mercado, index) => (
           <Link
             key={index}
-            to={`/market/${mercado.id}`}
+            to={`/lojas/${mercado.id}`}
             className="flex flex-col items-center mb-4"
           >
             <div className="w-16 h-16 bg-gray-200 rounded-full mb-1 flex items-center justify-center">

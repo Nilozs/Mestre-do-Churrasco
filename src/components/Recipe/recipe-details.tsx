@@ -13,7 +13,7 @@ const RecipeDetails = (props: Props) => {
           <h2 className="text-lg font-bold">Veja Componentes e Periféricos!</h2>
         </div>
         {recipes.map((recipe) => (
-          <Link key={recipe.id} to={`/recipes/${recipe.id}`} className="block">
+          <Link key={recipe.id} to={`/itens/${recipe.id}`} className="block">
             <div className="flex items-center mb-4">
               <img
                 src={recipe.image}
