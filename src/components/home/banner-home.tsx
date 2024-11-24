@@ -9,7 +9,7 @@ const BannerHome = (props: Props) => {
       <Card className=" bg-blue-600 text-white mb-6">
         <CardContent className="p-4 flex justify-between items-center">
           <div>
-            <h2 className="font-bold text-lg">Prepare sua Pizza</h2>
+            <h2 className="font-bold text-lg">Pesquise sobre Hardwares e Periféricos!</h2>
             <Link to="/churrascometro">
               <p className="text-sm">Tira suas duvidas com o Gemini</p>
             </Link>
