@@ -10,7 +10,7 @@ const RecipeDetails = (props: Props) => {
     <>
       <section>
         <div className="flex  justify-between items-center px-8">
-          <h2 className="text-lg font-bold">Veja uma receita</h2>
+          <h2 className="text-lg font-bold">Veja Componentes e Periféricos!</h2>
         </div>
         {recipes.map((recipe) => (
           <Link key={recipe.id} to={`/recipes/${recipe.id}`} className="block">
