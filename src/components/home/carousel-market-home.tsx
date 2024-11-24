@@ -6,7 +6,7 @@ const TopDiscount = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-2">
-        <h3 className="font-semibold mb-2">Pizzas mais pedidas</h3>
+        <h3 className="font-semibold mb-2">Processadores mais potentes</h3>
       </div>
       <div className="grid grid-cols-2 gap-4">
         {churrascariasCampoGrande.map((churrascaria, index) => (

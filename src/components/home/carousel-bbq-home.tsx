@@ -5,7 +5,7 @@ const TopCategories = () => {
   return (
     <div className="mb-6">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="font-semibold">Melhores pizzarias</h3>
+        <h3 className="font-semibold">Melhores lojas de hardware</h3>
       </div>
       <div className="flex flex-wrap justify-between">
         {mercadosChurrasco.map((mercado, index) => (

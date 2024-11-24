@@ -73,7 +73,7 @@ const App: React.FC = () => {
               <div
                 className="absolute inset-0 bg-cover bg-center filter"
                 style={{
-                  backgroundImage: `url('/fundo-pizza.jpg')`,
+                  backgroundImage: `url('/fundo-bar.jpg')`,
                 }}
               ></div>
 
@@ -111,10 +111,10 @@ const App: React.FC = () => {
               </IonItem>
               <IonItem button routerLink="/radio">
                 <img
-                  src="/livro-de-receitas.png"
+                  src="/engrenagem.png"
                   className="w-9 h-9 mr-4"
                 />
-                <IonLabel className="mb-1">Receitas</IonLabel>
+                <IonLabel className="mb-1">Componentes e Periféricos</IonLabel>
               </IonItem>
               <IonItem button routerLink="/library">
                 <img
@@ -128,13 +128,13 @@ const App: React.FC = () => {
                   src="/star.png"
                   className="w-9 h-9 mr-4 text-red-700"
                 />
-                <IonLabel className="mb-1">Receitas favoritas</IonLabel>
+                <IonLabel className="mb-1">Vídeos favoritos</IonLabel>
               </IonItem>
             </IonList>
           </IonContent>
         </IonMenu>
 
-        <IonRouterOutlet id="main-content" className="">
+        <IonRouterOutlet id="main-content">
           {loading ? (
             <LoadingScreen />
           ) : (
@@ -142,8 +142,12 @@ const App: React.FC = () => {
               <IonHeader>
                 <IonToolbar>
                   <IonMenuButton slot="start" />
-                  <IonTitle>
-                    <Link to="/home">Pizzaria Niloz</Link>
+                  <IonTitle>  
+                      <img 
+                        src="robo.png"
+                        className="w-9 h-9 mr-2 inline-flex text-xl" 
+                      />
+                      <Link to="/home">Tecniloz</Link>
                   </IonTitle>
                 </IonToolbar>
               </IonHeader>

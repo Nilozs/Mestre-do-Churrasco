@@ -1,8 +1,9 @@
 import { MaxWidthWrapper } from "@/components/animation"
 import MarketDetails from "@/components/home/market.detail"
+import { Button } from "@/components/ui/button"
 import { mercadosChurrasco } from "@/data/market"
 import { ChevronLeft, Heart, MoreHorizontal, Star } from "lucide-react"
-import { useHistory, useParams } from "react-router-dom"
+import { Link, useHistory, useParams } from "react-router-dom"
 
 const MarketDetailPage = () => {
   const history = useHistory()
@@ -52,6 +53,11 @@ const MarketDetailPage = () => {
           </div>
           <h1 className="text-xl font-bold mb-1 text-black">{mercado.nome}</h1>
           <p className="text-sm text-gray-500 mb-4">{mercado.descricao}</p>
+          <div className="flex flex-col items-center justify-center mt-6">
+            <Button className="h-full w-full p-4 bg-blue-600 text-white/90 text-xl">
+            <a target="_blank" href={mercado.site}>Acesse o Site</a>
+            </Button>
+          </div>
         </div>
       </MaxWidthWrapper>
     </div>

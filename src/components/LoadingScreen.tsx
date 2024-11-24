@@ -39,7 +39,7 @@ const LoadingScreen: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/fundo-pizza.jpg')",
+          backgroundImage: "url('/fundo-hardware.jpg')",
           filter: "brightness(50%)",
         }}
       />
@@ -51,7 +51,7 @@ const LoadingScreen: React.FC = () => {
           transition={{ duration: 1 }}
 
         >
-      <img className="w-24 h-28" src="/pizza-svgrepo-com.svg"/>
+      <img className="w-24 h-28" src="/hardware-svgrepo-com.svg"/>
         </motion.div>
         <motion.h1
           className="text-4xl font-bold mb-4"
@@ -59,7 +59,7 @@ const LoadingScreen: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Pizzaria Niloz
+          Tecniloz
         </motion.h1>
       </div>
     </div>

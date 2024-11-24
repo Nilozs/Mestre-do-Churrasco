@@ -3,6 +3,8 @@ import { churrascariasCampoGrande } from "@/data/steakhouse"
 import { useFavorites } from "@/hooks/useFavorites"
 import { ChevronLeft, Heart, MoreHorizontal, Star } from "lucide-react"
 import { useHistory, useParams } from "react-router-dom"
+import MarketDetails from "@/components/home/market.detail"
+import MarketDetailPage from "./MarketDetailPage"
 
 const BarbecuePage = () => {
   const history = useHistory()
@@ -48,6 +50,7 @@ const BarbecuePage = () => {
           <h1 className="text-xl font-bold mb-1 text-black">{mercado.nome}</h1>
           <p className="text-sm text-gray-500 mb-4">{mercado.descricao}</p>
         </div>
+      <MarketDetails />
       </MaxWidthWrapper>
     </div>
   )

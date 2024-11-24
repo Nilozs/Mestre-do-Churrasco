@@ -1,7 +1,8 @@
 import BannerHome from "./banner-home"
 import TopCategories from "./carousel-bbq-home"
 import TopDiscount from "./carousel-market-home"
-import { AccordionHOme } from "./faq-home"
+import { AccordionHome } from "./faq-home"
+
 
 
 type Props = {}
@@ -13,7 +14,8 @@ const Home = (props: Props) => {
         <BannerHome />
         <TopCategories />
         <TopDiscount />
-        <AccordionHOme />
+        <AccordionHome />
+
       </div>
     </section>
   )
