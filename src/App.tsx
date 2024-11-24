@@ -38,11 +38,16 @@ import RecipeDetailPage from "./pages/RecipeDetailPage"
 setupIonicReact()
 
 const App: React.FC = () => {
-  const { state } = useAuth()
+  const { state, dispatch } = useAuth()
   const [loading, setLoading] = useState(
-    () => !localStorage.getItem("loadingCompleted"),
+    () => !localStorage.getItem("loadingCompleted")
   )
   const router = useIonRouter()
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" })
+    router.push("/auth")
+  }
 
   useEffect(() => {
     if (loading) {
@@ -79,65 +84,49 @@ const App: React.FC = () => {
 
               <div className="absolute inset-0 bg-black opacity-40"></div>
 
-              <div className="relative z-10 flex items-center p-4">
-                {/* <IonAvatar className="mr-4 mt-16">
-          <img
-            alt="Silhouette of a person's head"
-            src="https://ionicframework.com/docs/img/demos/avatar.svg"
-          />
-        </IonAvatar>
-        <IonItem lines="full" className="mt-16">
-          {user.name}
-        </IonItem> */}
-              </div>
             </div>
-          </div> 
+          </div>
 
           <IonContent className="">
             <IonList>
-              <IonItem button routerLink="/home">
-                <img
-                  src="/Gimi.png"
-                  className="w-9 h-9 mr-4"
-                />
-                <IonLabel className="mb-1">Inicio</IonLabel>
-              </IonItem>
-              <IonItem button routerLink="/churrascometro">
-                <img
-                  src="ponto-de-interrogacao.png"
-                  className="w-9 h-9 mr-4"
-                />
-                <IonLabel className="mb-1">Conheça o Gemini</IonLabel>
-              </IonItem>
-              <IonItem button routerLink="/radio">
-                <img
-                  src="/engrenagem.png"
-                  className="w-9 h-9 mr-4"
-                />
-                <IonLabel className="mb-1">Componentes e Periféricos</IonLabel>
-              </IonItem>
-              <IonItem button routerLink="/library">
-                <img
-                  src="/mapa.png"
-                  className="w-9 h-9 mr-4 text-blue-600"
-                />
-                <IonLabel className="mb-1">Procure no mapa</IonLabel>
-              </IonItem>
-              <IonItem button routerLink="/avaliable">
-                <img
-                  src="/star.png"
-                  className="w-9 h-9 mr-4 text-blue-600"
-                />
-                <IonLabel className="mb-1">Componentes Favoritos</IonLabel>
-              </IonItem>
+              {state.isAuthenticated ? (
+                <>
+                <IonItem button routerLink="/home">
+                  <img src="/Gimi.png" className="w-9 h-9 mr-4" />
+                  <IonLabel className="mb-1">Inicio</IonLabel>
+                </IonItem>
+                  <IonItem button routerLink="/churrascometro">
+                    <img
+                      src="ponto-de-interrogacao.png"
+                      className="w-9 h-9 mr-4"
+                    />
+                    <IonLabel className="mb-1">Conheça o Gemini</IonLabel>
+                  </IonItem>
+                  <IonItem button routerLink="/radio">
+                    <img src="/engrenagem.png" className="w-9 h-9 mr-4" />
+                    <IonLabel className="mb-1">Componentes e Periféricos</IonLabel>
+                  </IonItem>
+                  <IonItem button routerLink="/library">
+                    <img src="/mapa.png" className="w-9 h-9 mr-4 text-blue-600" />
+                    <IonLabel className="mb-1">Procure no mapa</IonLabel>
+                  </IonItem>
+                  <IonItem button routerLink="/avaliable">
+                    <img src="/star.png" className="w-9 h-9 mr-4 text-blue-600" />
+                    <IonLabel className="mb-1">Componentes Favoritos</IonLabel>
+                  </IonItem>
+                </>
+              ) : (
+                <IonItem button onClick={() => router.push("/auth")}>
+                  <IonLabel className="mb-1">Faça login para acessar</IonLabel>
+                </IonItem>
+              )}
             </IonList>
             <IonItem button routerLink="/auth">
-                <img
-                  src="/sair.png"
-                  className="w-9 h-9 mr-4 text-blue-600"
-                />
-                <IonLabel className="mb-1">Sair da conta</IonLabel>
-              </IonItem>
+              <button className="inline-flex" onClick={handleLogout}>
+                <img src="/sair.png" className="w-9 h-9 mr-4 text-blue-600" />
+                <IonLabel className="mt-2">Sair da conta</IonLabel>
+              </button>
+            </IonItem>
           </IonContent>
         </IonMenu>
 
