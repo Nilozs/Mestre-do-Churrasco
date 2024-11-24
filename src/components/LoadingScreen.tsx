@@ -51,7 +51,7 @@ const LoadingScreen: React.FC = () => {
           transition={{ duration: 1 }}
 
         >
-      <img className="w-24 h-28" src="/hardware-svgrepo-com.svg"/>
+      <img className="w-24 h-28" src="/Gimi.png"/>
         </motion.div>
         <motion.h1
           className="text-4xl font-bold mb-4"
@@ -59,7 +59,7 @@ const LoadingScreen: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Tecniloz
+          TecNiloz
         </motion.h1>
       </div>
     </div>

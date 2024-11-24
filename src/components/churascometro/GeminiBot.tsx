@@ -80,7 +80,7 @@ export default function GeminiInReact() {
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Digite sua dúvida sobre pizzas aqui."
+            placeholder="Digite sua dúvida sobre hardwares e periféricos aqui."
             className="flex-1"
           />
           <Button type="submit" size="icon" disabled={loading}>
