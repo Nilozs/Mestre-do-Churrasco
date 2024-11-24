@@ -6,10 +6,7 @@ const TopDiscount = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-2">
-        <h3 className="font-semibold">Top Churrascarias</h3>
-        <Link to="/library">
-          <button className="text-gray-500 text-sm">Ver todos</button>
-        </Link>
+        <h3 className="font-semibold mb-2">Pizzas mais pedidas</h3>
       </div>
       <div className="grid grid-cols-2 gap-4">
         {churrascariasCampoGrande.map((churrascaria, index) => (
@@ -25,7 +22,7 @@ const TopDiscount = () => {
                 </div>
                 <h4 className="font-semibold text-sm">{churrascaria.nome}</h4>
                 <div className="flex justify-between items-center text-xs text-gray-500">
-                  <span>★ {churrascaria.rating} reviews</span>
+                  <span> Top {churrascaria.top} </span>
                 </div>
               </CardContent>
             </Card>

@@ -3,53 +3,49 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 
 export function AccordionHOme() {
   return (
-    <Accordion type="single" collapsible className="w-full h-screen  mx-auto">
+    <Accordion type="single" collapsible className="w-full h-screen mx-auto">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Como fazer um bom churrasco?</AccordionTrigger>
+        <AccordionTrigger>Como fazer uma boa pizza?</AccordionTrigger>
         <AccordionContent>
-          Fazer um bom churrasco envolve a escolha dos ingredientes certos, a
-          técnica adequada de preparo e algumas dicas para garantir que a carne
-          fique deliciosa. Aqui está um guia completo para um churrasco de
-          sucesso.
+          Fazer uma boa pizza envolve uma massa bem preparada, um molho saboroso
+          e ingredientes de qualidade. Use farinha especial para pizzas, deixe a
+          massa descansar corretamente e escolha recheios que harmonizem bem
+          entre si. Asse em forno bem quente para garantir uma textura crocante
+          e um sabor irresistível.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger> Dicas Gerais para Temperar Carne</AccordionTrigger>
+        <AccordionTrigger>Dicas Gerais para Temperar Pizza</AccordionTrigger>
         <AccordionContent>
-          Não Exagere no Sal: O sal ajuda a realçar o sabor, mas use com
-          moderação para não deixar a carne muito salgada. Espere um Tempo para
-          o Tempero Agir: Se possível, deixe a carne descansar após temperar
-          para que os sabores se integrem melhor. Pimenta-do-Reino e Alho: São
-          ótimos para adicionar sabor extra. O alho em pó é uma boa opção se
-          você não quiser pedaços visíveis de alho na carne. Ervas Frescas: São
-          ótimas para dar um toque fresco e aromático à carne. Use salsinha,
-          cebolinha, alecrim e tomilho. Com esses temperos e técnicas, suas
-          carnes para o churrasco ficaram deliciosas e cheias de sabor!
+          Use Ervas Aromáticas: O manjericão fresco é indispensável, mas orégano
+          também é um clássico. Experimente alecrim e tomilho para variações.
+          Molho de Tomate: Prefira tomates frescos ou um molho caseiro bem
+          temperado com alho e cebola. Queijo de Qualidade: Muçarela é o básico,
+          mas experimente queijos como parmesão, gorgonzola ou até burrata para
+          um toque especial. Azeite: Finalize sua pizza com um fio de azeite para
+          realçar os sabores.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
-        <AccordionTrigger> Descanso da Carne</AccordionTrigger>
+        <AccordionTrigger>Descanso da Massa</AccordionTrigger>
         <AccordionContent>
-          Após retirar a carne da grelha, deixe-a descansar por 5 a 10 minutos
-          antes de cortar. Esse tempo é crucial para permitir que os sucos se
-          redistribuam, resultando em uma carne mais suculenta e macia. Cubra
-          levemente a carne com papel alumínio para manter o calor e a umidade
-          durante o descanso. Ao cortar, faça-o contra as fibras para obter uma
-          textura mais macia e agradável ao paladar.
+          Deixe a massa descansar por pelo menos 1 a 2 horas antes de abrir.
+          Esse descanso é fundamental para que o glúten se desenvolva,
+          garantindo uma massa elástica e leve. Durante o descanso, cubra a
+          massa com um pano úmido ou filme plástico para evitar que resseque.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-4">
-        <AccordionTrigger>Dicas para seu churrasco</AccordionTrigger>
+        <AccordionTrigger>Dicas para sua pizza</AccordionTrigger>
         <AccordionContent>
-
           <div className="aspect-w-16 aspect-video aspect-h-9 mb-6 overflow-auto">
             <iframe
-              className="w-screen h-screen "
-              src="https://youtu.be/VsegCxDuTYg?si=M9zoMMgnfKfjmH2M" 
+              className="w-screen-auto h-screen-auto"
+              src="https://www.youtube.com/embed/rBUmx1OJBUY?si=impepMyZ3LkA4esn"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -58,5 +54,5 @@ export function AccordionHOme() {
         </AccordionContent>
       </AccordionItem>
     </Accordion>
-  )
+  );
 }

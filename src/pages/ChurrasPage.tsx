@@ -1,7 +1,7 @@
 import { MaxWidthWrapper } from "@/components/animation"
 import GeminiInReact from "@/components/churascometro/GeminiBot"
 
-import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react"
+import { IonContent } from "@ionic/react"
 
 const ChurrasPage = () => (
   <>

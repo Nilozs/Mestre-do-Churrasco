@@ -11,7 +11,6 @@ const BarbecuePage = () => {
     (mercado) => mercado.id === parseInt(id),
   )
 
-  const { isFavorite, toggleFavorite } = useFavorites(mercado)
 
   if (!mercado) {
     return <p>Mercado não encontrado!</p>
@@ -36,26 +35,13 @@ const BarbecuePage = () => {
           >
             <ChevronLeft className="w-6 h-6 text-gray-800" />
           </button>
-          <button className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
-            <MoreHorizontal className="w-6 h-6 text-gray-800" />
-          </button>
-          <button
-            className="absolute top-4 right-16 bg-white rounded-full p-2 shadow-md"
-            onClick={toggleFavorite}
-          >
-            <Heart
-              className={`w-6 h-6 ${
-                isFavorite ? "text-red-500" : "text-gray-300"
-              }`}
-            />
-          </button>
         </div>
         <div className="p-4 flex-grow overflow-auto">
           <div className="flex items-center space-x-2 mb-2">
             <div className="flex items-center bg-orange-100 rounded-md px-2 py-1">
-              <Star className="w-4 h-4 text-custom-red fill-current" />
+              <Star className="w-4 h-4 text-custom-orange fill-current" />
               <span className="ml-1 text-sm font-semibold text-custom-yellow">
-                {mercado.rating}
+                Top {mercado.top}
               </span>
             </div>
           </div>

@@ -2,7 +2,6 @@ import {
   IonApp,
   IonContent,
   IonHeader,
-  IonIcon,
   IonItem,
   IonLabel,
   IonList,
@@ -10,7 +9,6 @@ import {
   IonMenuButton,
   IonRouterOutlet,
   IonTitle,
-  IonToggle,
   IonToolbar,
   setupIonicReact,
   useIonRouter,
@@ -70,12 +68,12 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonMenu contentId="main-content">
-          <Link to="/profile">
+          <div>
             <div className="relative h-52 w-full">
               <div
-                className="absolute inset-0 bg-cover bg-center filter blur-md"
+                className="absolute inset-0 bg-cover bg-center filter"
                 style={{
-                  backgroundImage: `url('/image-menu.jpg')`,
+                  backgroundImage: `url('/fundo-pizza.jpg')`,
                 }}
               ></div>
 
@@ -93,49 +91,44 @@ const App: React.FC = () => {
         </IonItem> */}
               </div>
             </div>
-          </Link>
+          </div> 
 
           <IonContent className="">
             <IonList>
               <IonItem button routerLink="/home">
                 <img
-                  src="/bbq.png"
-                  alt="churrasco icon"
+                  src="/pizza-icon.png"
                   className="w-9 h-9 mr-4"
                 />
                 <IonLabel className="mb-1">Inicio</IonLabel>
               </IonItem>
               <IonItem button routerLink="/churrascometro">
                 <img
-                  src="/churrasco.png"
-                  alt="churrasco icon"
+                  src="/robo.png"
                   className="w-9 h-9 mr-4"
                 />
-                <IonLabel className="mb-1">Churrascometro</IonLabel>
+                <IonLabel className="mb-1">Conheça o Gemini</IonLabel>
               </IonItem>
               <IonItem button routerLink="/radio">
                 <img
                   src="/livro-de-receitas.png"
-                  alt="churrasco icon"
                   className="w-9 h-9 mr-4"
                 />
                 <IonLabel className="mb-1">Receitas</IonLabel>
               </IonItem>
               <IonItem button routerLink="/library">
                 <img
-                  src="/procurar.png"
-                  alt="churrasco icon"
+                  src="/mapa.png"
                   className="w-9 h-9 mr-4 text-red-700"
                 />
-                <IonLabel className="mb-1">Faça sua pesquisa</IonLabel>
+                <IonLabel className="mb-1">Procure no mapa</IonLabel>
               </IonItem>
               <IonItem button routerLink="/avaliable">
                 <img
                   src="/star.png"
-                  alt="churrasco icon"
                   className="w-9 h-9 mr-4 text-red-700"
                 />
-                <IonLabel className="mb-1">Favoritos</IonLabel>
+                <IonLabel className="mb-1">Receitas favoritas</IonLabel>
               </IonItem>
             </IonList>
           </IonContent>
@@ -150,7 +143,7 @@ const App: React.FC = () => {
                 <IonToolbar>
                   <IonMenuButton slot="start" />
                   <IonTitle>
-                    <Link to="/home">Mestre do churrasco</Link>
+                    <Link to="/home">Pizzaria Niloz</Link>
                   </IonTitle>
                 </IonToolbar>
               </IonHeader>

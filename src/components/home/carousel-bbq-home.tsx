@@ -5,10 +5,7 @@ const TopCategories = () => {
   return (
     <div className="mb-6">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="font-semibold">Top Mercados de Churrasco</h3>
-        <Link to="/library">
-          <button className="text-gray-500 text-sm">Ver todos</button>
-        </Link>
+        <h3 className="font-semibold">Melhores pizzarias</h3>
       </div>
       <div className="flex flex-wrap justify-between">
         {mercadosChurrasco.map((mercado, index) => (

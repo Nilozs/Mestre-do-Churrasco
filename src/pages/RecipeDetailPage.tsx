@@ -93,9 +93,9 @@ const RecipeDetailPage = () => {
             </button>
           </div>
 
-          <div className="aspect-w-16 aspect-video aspect-h-9 mb-6 overflow-auto">
+          <div>
             <iframe
-              className="w-screen h-screen "
+              className="w-auto h-auto"
               src={recipe.video}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

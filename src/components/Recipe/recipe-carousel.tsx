@@ -12,8 +12,8 @@ interface RecipeCarouselProps {
 
 const RecipeCarousel: React.FC<RecipeCarouselProps> = ({ recipes }) => {
   return (
-    <section className="mb-8">
-      <div className="flex justify-between items-center mb-4 px-8">
+    <section>
+      {/* <div className="flex justify-between items-center mb-4 px-8">
         {" "}
         <h2 className="text-lg font-bold">Populares</h2>
         <a href="#" className="text-teal-500">
@@ -39,7 +39,7 @@ const RecipeCarousel: React.FC<RecipeCarouselProps> = ({ recipes }) => {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-      </div>
+      </div> */}
     </section>
   )
 }

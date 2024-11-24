@@ -9,7 +9,7 @@ const RecipeDetails = (props: Props) => {
   return (
     <>
       <section>
-        <div className="flex  justify-between items-center mb-4 px-8">
+        <div className="flex  justify-between items-center px-8">
           <h2 className="text-lg font-bold">Veja uma receita</h2>
         </div>
         {recipes.map((recipe) => (
