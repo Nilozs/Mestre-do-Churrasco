@@ -6,7 +6,7 @@ import { SendHorizontal } from "lucide-react"
 import { useState } from "react"
 
 type Message = {
-  role: "user" | "bot"
+  role: "user" | "bot" | "loading"
   content: string
 }
 
@@ -27,6 +27,10 @@ export default function GeminiInReact() {
       setMessages((prevMessages) => [...prevMessages, userMessage])
       setInput("")
 
+      // Adicionar mensagem de carregamento
+      const loadingMessage: Message = { role: "loading", content: "" }
+      setMessages((prevMessages) => [...prevMessages, loadingMessage])
+
       try {
         setLoading(true)
         const model = genAI.getGenerativeModel({ model: "gemini-pro" })
@@ -37,15 +41,18 @@ export default function GeminiInReact() {
           role: "bot",
           content: result.response.text(),
         }
-        setMessages((prevMessages) => [...prevMessages, botResponse])
+        setMessages((prevMessages) => [
+          ...prevMessages.slice(0, -1), 
+          botResponse,
+        ])
       } catch (error) {
         console.error("Something went wrong", error)
         setMessages((prevMessages) => [
-          ...prevMessages,
+          ...prevMessages.slice(0, -1), 
           {
             role: "bot",
             content: "Desculpe, algo deu errado. Tente novamente.",
-          } as Message,
+          },
         ])
       } finally {
         setLoading(false)
@@ -54,7 +61,7 @@ export default function GeminiInReact() {
   }
 
   return (
-    <div className="flex flex-col h-[600px]  max-w-md mx-auto overflow-hidden">
+    <div className="flex flex-col h-[600px] max-w-md mx-auto overflow-hidden">
       <ScrollArea className="flex-1 p-4">
         {messages.map((message, index) => (
           <div
@@ -67,10 +74,19 @@ export default function GeminiInReact() {
               className={`inline-block p-2 rounded-lg ${
                 message.role === "user"
                   ? "bg-black text-white text-primary-foreground"
+                  : message.role === "loading"
+                  ? "bg-gray-200 text-muted"
                   : "bg-muted"
               }`}
             >
-              {message.content}
+              {message.role === "loading" ? (
+                <div className="flex items-center space-x-2">
+                  <span className="spinner-border text-primary h-4 w-4 animate-spin" />
+                  <span>Carregando...</span>
+                </div>
+              ) : (
+                message.content
+              )}
             </div>
           </div>
         ))}
@@ -85,7 +101,7 @@ export default function GeminiInReact() {
           />
           <Button type="submit" size="icon" disabled={loading}>
             {loading ? (
-              <span className="spinner-border text-primary" role="status">
+              <span className="spinner-border text-primary h-4 w-4 animate-spin" role="status">
                 <span className="sr-only">Carregando...</span>
               </span>
             ) : (
