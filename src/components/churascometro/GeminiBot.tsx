@@ -66,7 +66,7 @@ export default function GeminiInReact() {
             <div
               className={`inline-block p-2 rounded-lg ${
                 message.role === "user"
-                  ? "bg-black text-white text-primary-foreground"
+                  ? "bg-blue-600 text-white text-primary-foreground"
                   : "bg-muted"
               }`}
             >

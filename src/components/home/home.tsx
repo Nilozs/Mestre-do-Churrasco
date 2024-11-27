@@ -12,8 +12,8 @@ const Home = (props: Props) => {
     <section>
       <div className=" mx-auto h-screen p-4">
         <BannerHome />
-        <TopCategories />
         <TopDiscount />
+        <TopCategories />
         <AccordionHome />
 
       </div>
