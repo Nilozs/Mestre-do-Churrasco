@@ -31,4 +31,20 @@ export const churrascariasCampoGrande = [
       "Equilibrando custo e desempenho, o Core i7-13700K oferece 16 núcleos (8 de desempenho e 8 de eficiência) e é excelente para jogos e multitarefa. Compatível com as mais recentes tecnologias.",
     top: 4,
   },
+  {
+    id: 5,
+    nome: "AMD Ryzen 5 7600X",
+    img: "/ryzen-5-7600x.png",
+    descricao:
+      "Ideal para gamers que buscam alta performance a um custo acessível, o Ryzen 5 7600X possui 6 núcleos e 12 threads, além de suporte a DDR5 e PCIe 5.0.",
+    top: 5,
+  },
+  {
+    id: 6,
+    nome: "Intel Core i5-13600K",
+    img: "/intel-core-i5-13600k.png",
+    descricao:
+      "Com 14 núcleos (6 de desempenho e 8 de eficiência), o Intel Core i5-13600K entrega excelente custo-benefício, sendo ideal para jogos e produtividade.",
+    top: 6,
+  },
 ];
