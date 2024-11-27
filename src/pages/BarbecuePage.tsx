@@ -1,4 +1,5 @@
 import { MaxWidthWrapper } from "@/components/animation"
+import { Button } from "@/components/ui/button"
 import { churrascariasCampoGrande } from "@/data/steakhouse"
 import { useFavorites } from "@/hooks/useFavorites"
 import { ChevronLeft, Heart, MoreHorizontal, Star } from "lucide-react"
@@ -47,6 +48,11 @@ const BarbecuePage = () => {
           </div>
           <h1 className="text-xl font-bold mb-1 text-black">{mercado.nome}</h1>
           <p className="text-sm text-gray-500 mb-4">{mercado.descricao}</p>
+          <div className="flex flex-col items-center justify-center mt-6">
+            <Button className="h-full w-full p-4 bg-blue-600 text-white/90 text-xl">
+            <a target="_blank" href={mercado.link}>Saiba Mais</a>
+            </Button>
+          </div>
         </div>
       </MaxWidthWrapper>
     </div>
