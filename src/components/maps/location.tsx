@@ -1,6 +1,7 @@
 import { Geolocation } from "@capacitor/geolocation"
 import React, { useEffect, useState } from "react"
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet"
+import { IonToast } from "@ionic/react"
 import "leaflet/dist/leaflet.css"
 
 const UpdateMapView: React.FC<{ location: { lat: number; lng: number } }> = ({ location }) => {
@@ -22,6 +23,8 @@ const CurrentLocationMap: React.FC = () => {
     search: null,
   })
   const [searchLocation, setSearchLocation] = useState<string>("")
+  const [toastMessage, setToastMessage] = useState<string>("")
+  const [showToast, setShowToast] = useState<boolean>(false)
 
   const getCurrentLocation = async () => {
     try {
@@ -32,6 +35,8 @@ const CurrentLocationMap: React.FC = () => {
       }))
     } catch (error) {
       console.error("Erro ao obter localização atual:", error)
+      setToastMessage("Erro ao obter localização atual.")
+      setShowToast(true)
     }
   }
 
@@ -49,10 +54,13 @@ const CurrentLocationMap: React.FC = () => {
           search: { lat: parseFloat(lat), lng: parseFloat(lon) },
         }))
       } else {
-        alert("Local não encontrado.")
+        setToastMessage("Local não encontrado.")
+        setShowToast(true)
       }
     } catch (error) {
       console.error("Erro ao buscar localização:", error)
+      setToastMessage("Erro ao buscar localização.")
+      setShowToast(true)
     }
   }
 
@@ -64,6 +72,14 @@ const CurrentLocationMap: React.FC = () => {
 
   return (
     <div className="w-full h-auto p-0.5">
+      <IonToast
+        isOpen={showToast}
+        onDidDismiss={() => setShowToast(false)}
+        message={toastMessage}
+        duration={2000}
+        position="bottom"
+        color="danger"
+      />
       <div>
         <input
           type="text"
